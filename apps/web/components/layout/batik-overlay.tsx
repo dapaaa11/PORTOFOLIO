@@ -17,7 +17,7 @@ interface BatikOverlayProps {
 
 export function BatikOverlay({
   enabled = true,
-  patternOpacity = 0.045,
+  patternOpacity = 0.10,
 }: BatikOverlayProps) {
   if (!enabled) return null;
 
@@ -26,27 +26,27 @@ export function BatikOverlay({
       className="pointer-events-none fixed inset-0 z-0 overflow-hidden select-none"
       aria-hidden="true"
     >
-      {/* Premium Atmospheric Depth Layer - Slow organic radial glow */}
+      {/* Premium Atmospheric Depth Layer - Strengthened organic radial glows for exploration */}
       <div 
-        className="absolute -top-1/4 left-1/2 h-[75vh] w-[125vw] -translate-x-1/2 rounded-[50%] bg-radial from-white/[0.04] via-transparent to-transparent blur-3xl" 
+        className="absolute -top-1/4 left-1/2 h-[75vh] w-[125vw] -translate-x-1/2 rounded-[50%] bg-radial from-white/[0.07] via-transparent to-transparent blur-3xl" 
       />
       <div 
-        className="absolute top-1/2 left-1/3 h-[55vh] w-[85vw] -translate-y-1/2 rounded-[50%] bg-radial from-white/[0.025] via-transparent to-transparent blur-3xl" 
+        className="absolute top-1/2 left-1/3 h-[55vh] w-[85vw] -translate-y-1/2 rounded-[50%] bg-radial from-white/[0.04] via-transparent to-transparent blur-3xl" 
       />
 
       {/* 
-        Indonesian-Inspired Repeating Identity Layer: Kawung Pattern
+        Indonesian-Inspired Repeating Identity Layer: Kawung Pattern (Denser Blueprint Exploration Pass)
         - Highly mathematical, intersecting circles forming 4-petaled geometries.
-        - Resembles architectural grids, blueprints, or software node networks.
-        - Hidden on mobile to ensure zero clutter, fading out softly at the bottom.
+        - Reduced to 80px grid width/height to present a denser blueprint mesh.
+        - Boosted opacity and mask thresholds to create a clearly visible architecture reference.
       */}
       <div 
         className="hidden sm:block absolute inset-0 transition-opacity duration-1000"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cdefs%3E%3Cpattern id='kawung' width='120' height='120' patternUnits='userSpaceOnUse'%3E%3Ccircle cx='60' cy='60' r='58' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='${patternOpacity}' /%3E%3Ccircle cx='0' cy='0' r='58' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='${patternOpacity}' /%3E%3Ccircle cx='120' cy='0' r='58' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='${patternOpacity}' /%3E%3Ccircle cx='0' cy='120' r='58' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='${patternOpacity}' /%3E%3Ccircle cx='120' cy='120' r='58' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='${patternOpacity}' /%3E%3Crect x='57.5' y='57.5' width='5' height='5' transform='rotate%2845 60 60%29' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='${patternOpacity}' /%3E%3C/pattern%3E%3C/defs%3E%3Crect width='120' height='120' fill='url%28%23kawung%29' /%3E%3C/svg%3E")`,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cdefs%3E%3Cpattern id='kawung' width='80' height='80' patternUnits='userSpaceOnUse'%3E%3Ccircle cx='40' cy='40' r='38' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='${patternOpacity}' /%3E%3Ccircle cx='0' cy='0' r='38' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='${patternOpacity}' /%3E%3Ccircle cx='80' cy='0' r='38' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='${patternOpacity}' /%3E%3Ccircle cx='0' cy='80' r='38' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='${patternOpacity}' /%3E%3Ccircle cx='80' cy='80' r='38' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='${patternOpacity}' /%3E%3Crect x='37.5' y='37.5' width='5' height='5' transform='rotate%2845 40 40%29' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='${patternOpacity}' /%3E%3C/pattern%3E%3C/defs%3E%3Crect width='80' height='80' fill='url%28%23kawung%29' /%3E%3C/svg%3E")`,
           backgroundRepeat: "repeat",
-          maskImage: "radial-gradient(circle at 50% 30%, black 30%, rgba(0, 0, 0, 0.6) 70%, transparent 100%)",
-          WebkitMaskImage: "radial-gradient(circle at 50% 30%, black 30%, rgba(0, 0, 0, 0.6) 70%, transparent 100%)",
+          maskImage: "radial-gradient(circle at 50% 30%, black 45%, rgba(0, 0, 0, 0.75) 75%, transparent 100%)",
+          WebkitMaskImage: "radial-gradient(circle at 50% 30%, black 45%, rgba(0, 0, 0, 0.75) 75%, transparent 100%)",
         }}
       />
 
