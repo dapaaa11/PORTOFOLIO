@@ -3,6 +3,7 @@ import { FadeIn } from "@/components/motion/fade-in";
 import { Section } from "@/components/layout/section";
 import { SectionTitle } from "@/components/ui/section-title";
 import { ProjectCard } from "@/components/ui/project-card";
+import { ExperienceItem } from "@/components/ui/experience-item";
 
 export default function HomePage() {
   return (
@@ -58,6 +59,31 @@ export default function HomePage() {
             title="AI Workflow Platform"
             description="Modern AI workflow system integrating automation pipelines, prompt orchestration, and scalable API architecture."
             stack={["React", "Laravel", "OpenAI"]}
+          />
+        </div>
+      </Section>
+
+      {/* Experience Section */}
+      <Section id="experience">
+        <SectionTitle
+          eyebrow="Experience"
+          title="Engineering Journey"
+          description="Focused on building scalable systems, modern frontend experiences, and cloud-native applications."
+        />
+
+        <div className="mt-16">
+          <ExperienceItem
+            year="2024 — Present"
+            role="Full-Stack Developer"
+            company="Freelance & Independent Projects"
+            description="Developing modern web applications using scalable frontend architecture, backend systems, and cloud-native workflows."
+          />
+
+          <ExperienceItem
+            year="2023 — 2024"
+            role="Frontend Developer"
+            company="Personal Product Development"
+            description="Focused on building responsive interfaces, reusable design systems, and performant React applications."
           />
         </div>
       </Section>
