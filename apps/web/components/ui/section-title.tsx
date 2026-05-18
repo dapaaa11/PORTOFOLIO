@@ -12,20 +12,20 @@ export function SectionTitle({
   return (
     <div className="max-w-2xl">
       {eyebrow && (
-        <p className="mb-4 text-xs uppercase tracking-[0.24em] text-zinc-500 sm:tracking-[0.3em]">
+        <p className="mb-5 text-[11px] uppercase tracking-[0.25em] text-zinc-500 sm:text-xs sm:tracking-[0.3em]">
           {eyebrow}
         </p>
       )}
 
       <h2
-        className="text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl"
+        className="text-[clamp(1.75rem,5vw,3rem)] font-medium leading-[1.1] tracking-[-0.02em] text-white"
         style={{ fontFamily: "var(--font-heading)" }}
       >
         {title}
       </h2>
 
       {description && (
-        <p className="mt-5 max-w-xl text-base leading-relaxed text-zinc-400 sm:mt-6 lg:text-lg">
+        <p className="mt-5 max-w-xl text-[15px] leading-[1.7] text-zinc-400 sm:mt-6 sm:text-base lg:leading-[1.75]">
           {description}
         </p>
       )}

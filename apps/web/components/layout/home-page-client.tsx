@@ -90,30 +90,31 @@ export function HomePageClient({ initialContent }: HomePageClientProps) {
   return (
     <main id="main-content" className="min-h-screen bg-black pt-16 text-white overflow-hidden">
       {/* HERO SECTION */}
-      <Container className="relative flex min-h-[calc(100svh-6rem)] items-center py-20 sm:min-h-[calc(100svh-4rem)] sm:py-24 lg:py-32">
+      <Container className="relative flex min-h-[calc(100svh-6rem)] items-center py-20 sm:min-h-[calc(100svh-4rem)] sm:py-28 lg:py-36">
         {/* Left Typography Block - Primary visual focus */}
         <div className="relative z-10 max-w-2xl lg:max-w-3xl">
           <FadeIn>
-            <p className="mb-5 max-w-xs text-xs uppercase leading-relaxed tracking-[0.24em] text-zinc-500 sm:mb-6 sm:max-w-none sm:text-sm sm:tracking-[0.3em]">
+            <p className="mb-5 max-w-xs text-[11px] uppercase leading-relaxed tracking-[0.25em] text-zinc-500 sm:mb-7 sm:max-w-none sm:text-xs sm:tracking-[0.3em]">
               {heroContent.eyebrow}
             </p>
           </FadeIn>
 
           <FadeIn delay={0.1}>
             <h1
-              className="text-[clamp(2.75rem,15vw,4.5rem)] font-semibold leading-[0.95] tracking-tight lg:text-7xl"
+              className="text-[clamp(2.00rem,9vw,2.75rem)] sm:text-[clamp(2.75rem,13vw,4.5rem)] lg:text-7xl font-medium leading-[1.05] sm:leading-[1.0] tracking-[-0.025em]"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               {headlineLines.map((line, idx) => (
-                <span key={`${line}-${idx}`} className="block">
+                <span key={`${line}-${idx}`} className="inline sm:block">
                   {line}
+                  <span className="sm:hidden"> </span>
                 </span>
               ))}
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.2}>
-            <p className="mt-7 max-w-xl text-base leading-relaxed text-zinc-400 sm:mt-8 lg:text-lg">
+            <p className="mt-6 max-w-xl text-[15px] leading-[1.7] text-zinc-400 sm:mt-10 sm:text-base lg:text-lg lg:leading-[1.75]">
               {heroContent.subheadline}
             </p>
           </FadeIn>
@@ -168,7 +169,7 @@ export function HomePageClient({ initialContent }: HomePageClientProps) {
           title={sectionsContent.projects.title}
           description={sectionsContent.projects.description}
         />
-        <div className="mt-12 grid gap-4 sm:mt-16 sm:gap-6 lg:grid-cols-2">
+        <div className="mt-14 grid gap-5 sm:mt-16 sm:gap-6 lg:grid-cols-2">
           {resolvedProjects.map((project) => (
             <ProjectCard
               key={project.title}
@@ -190,7 +191,7 @@ export function HomePageClient({ initialContent }: HomePageClientProps) {
           description={sectionsContent.experience.description}
         />
 
-        <div className="mt-12 sm:mt-16">
+        <div className="mt-14 sm:mt-16">
           {resolvedExperience.map((item, idx) => (
             <ExperienceItem
               key={`${item.company}-${item.role}-${idx}`}
@@ -211,7 +212,7 @@ export function HomePageClient({ initialContent }: HomePageClientProps) {
           description={sectionsContent.skills.description}
         />
 
-        <div className="mt-12 grid gap-4 sm:mt-16 sm:gap-6 md:grid-cols-2">
+        <div className="mt-14 grid gap-5 sm:mt-16 sm:gap-6 md:grid-cols-2">
           {resolvedSkills.map((skill) => (
             <SkillGroup
               key={skill.category}
@@ -230,10 +231,10 @@ export function HomePageClient({ initialContent }: HomePageClientProps) {
           description={sectionsContent.contact.description}
         />
 
-        <div className="mt-10 flex flex-col items-start gap-4 sm:mt-12 sm:flex-row sm:flex-wrap sm:items-center">
+        <div className="mt-12 flex flex-col items-start gap-5 sm:mt-14 sm:flex-row sm:flex-wrap sm:items-center">
           <a
             href={`mailto:${sectionsContent.contact.email}`}
-            className="inline-flex min-h-11 items-center rounded-full border border-white/10 px-6 py-3 text-sm text-white transition-colors duration-300 hover:border-white/20 hover:bg-white hover:text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+            className="inline-flex min-h-12 items-center rounded-full border border-white/10 px-7 py-3.5 text-sm font-medium tracking-wide text-white transition-all duration-400 hover:border-white/25 hover:bg-white hover:text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
           >
             {sectionsContent.contact.ctaLabel}
           </a>

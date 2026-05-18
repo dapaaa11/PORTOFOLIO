@@ -34,15 +34,18 @@ body {
   color: var(--foreground);
 
   font-family: var(--font-sans);
+  letter-spacing: -0.011em;
+  font-optical-sizing: auto;
 
   overflow-x: hidden;
 
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.92);
   color: #000000;
 }
 

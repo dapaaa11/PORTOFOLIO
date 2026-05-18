@@ -24,28 +24,28 @@ export function SkillGroup({
   return (
     <div
       onMouseMove={handleMouseMove}
-      className="group relative overflow-hidden rounded-lg border border-white/10 bg-white/[0.01] p-6 sm:p-8 hover:border-white/20 transition-all duration-500"
+      className="group relative overflow-hidden rounded-xl border border-white/[0.06] bg-white/[0.01] p-6 sm:p-8 hover:border-white/15 transition-all duration-500"
     >
       {/* Cinematic Radial Glow Overlay (Cursor Tracker) */}
       <div
-        className="pointer-events-none absolute -inset-px rounded-lg opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+        className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
         style={{
           background: `radial-gradient(300px circle at ${coords.x}px ${coords.y}px, rgba(255,255,255,0.04), transparent 80%)`,
         }}
       />
 
       <h3
-        className="relative z-10 text-lg font-semibold tracking-tight text-white sm:text-xl"
+        className="relative z-10 text-lg font-medium tracking-[-0.01em] text-white sm:text-xl"
         style={{ fontFamily: "var(--font-heading)" }}
       >
         {title}
       </h3>
 
-      <div className="relative z-10 mt-6 flex flex-wrap gap-2 sm:gap-3">
+      <div className="relative z-10 mt-6 flex flex-wrap gap-2 sm:gap-2.5">
         {items.map((item) => (
           <span
             key={item}
-            className="rounded-md border border-white/5 bg-white/[0.005] px-3 py-1.5 text-sm text-zinc-400 transition-all duration-500 hover:border-white/20 hover:bg-white/[0.04] hover:text-white sm:px-4 sm:py-2"
+            className="rounded-md border border-white/[0.04] bg-white/[0.005] px-3 py-1.5 text-[13px] text-zinc-400 transition-all duration-500 hover:border-white/15 hover:bg-white/[0.04] hover:text-white sm:px-4 sm:py-2"
           >
             {item}
           </span>

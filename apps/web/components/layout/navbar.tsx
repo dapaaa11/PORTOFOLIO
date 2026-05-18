@@ -83,11 +83,11 @@ export function Navbar() {
   };
 
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-white/5 bg-black/70 backdrop-blur-xl">
+    <header className="fixed top-0 z-50 w-full border-b border-white/[0.04] bg-black/70 backdrop-blur-xl">
       <div className="container-layout flex h-16 items-center justify-between">
         <Link
           href="/"
-          className="shrink-0 text-sm font-medium tracking-tight text-white relative group"
+          className="shrink-0 text-sm font-medium tracking-[-0.01em] text-white relative group"
           onClick={closeMenu}
         >
           <span>Dava Ardana</span>
@@ -106,7 +106,7 @@ export function Navbar() {
                 key={link.label}
                 href={link.href}
                 onMouseEnter={() => setHoveredIndex(index)}
-                className="relative py-1 text-sm text-zinc-400 transition-colors duration-300 hover:text-white focus:outline-none focus-visible:ring-1 focus-visible:ring-white/40 rounded px-1.5"
+                className="relative py-1 text-[13px] text-zinc-400 transition-colors duration-300 hover:text-white focus:outline-none focus-visible:ring-1 focus-visible:ring-white/40 rounded px-1.5"
               >
                 <span className="relative z-10">{link.label}</span>
                 {hoveredIndex === index && (
@@ -121,7 +121,7 @@ export function Navbar() {
           </nav>
 
           {/* Premium Desktop Language Switcher */}
-          <div className="flex items-center gap-1.5 text-xs font-mono border-l border-white/10 pl-6 h-5">
+          <div className="flex items-center gap-1.5 text-[11px] font-mono border-l border-white/[0.06] pl-6 h-5">
             <button
               onClick={() => setLanguage("en")}
               className={`transition-colors duration-300 hover:text-white focus:outline-none focus-visible:ring-1 focus-visible:ring-white/40 rounded px-1.5 ${
@@ -188,7 +188,7 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-x-0 top-16 z-40 h-[calc(100svh-4rem)] border-t border-white/5 bg-black/95 backdrop-blur-xl md:hidden"
+            className="fixed inset-x-0 top-16 z-40 h-[calc(100svh-4rem)] border-t border-white/[0.04] bg-black/95 backdrop-blur-xl md:hidden"
           >
             <motion.div
               initial={{ y: -8, opacity: 0 }}

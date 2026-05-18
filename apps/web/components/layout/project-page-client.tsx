@@ -189,13 +189,13 @@ export function ProjectPageClient({ slug, project }: ProjectPageClientProps) {
         {/* HERO TITLE BLOCK */}
         <div className="max-w-4xl mb-12 sm:mb-16">
           <FadeIn delay={0.05}>
-            <p className="text-xs uppercase tracking-[0.2em] text-zinc-500 mb-4 font-medium">
+            <p className="text-[11px] uppercase tracking-[0.25em] text-zinc-500 mb-5 font-medium">
               {activeLoc.caseStudy}
             </p>
           </FadeIn>
           <FadeIn delay={0.1}>
             <h1
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05]"
+              className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-[-0.025em] leading-[1.08]"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               {resolvedProject.title}
@@ -221,12 +221,12 @@ export function ProjectPageClient({ slug, project }: ProjectPageClientProps) {
             {/* Storytelling - Section 1: Overview */}
             <FadeIn delay={0.2}>
               <h2
-                className="text-2xl font-semibold tracking-tight text-white mb-4"
+                className="text-2xl font-medium tracking-[-0.015em] text-white mb-5"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
                 {activeLoc.projectOverview}
               </h2>
-              <div className="space-y-6 text-zinc-400 text-base sm:text-lg leading-relaxed font-light">
+              <div className="space-y-6 text-zinc-400 text-[15px] sm:text-base leading-[1.7] lg:leading-[1.75]">
                 {descriptionParagraphs.map((paragraph, index) => (
                   <p key={index}>{paragraph}</p>
                 ))}
@@ -237,7 +237,7 @@ export function ProjectPageClient({ slug, project }: ProjectPageClientProps) {
             <FadeIn delay={0.25}>
               <div className="border-t border-white/10 pt-10">
                 <h3
-                  className="text-xl font-semibold tracking-tight text-white mb-6"
+                  className="text-xl font-medium tracking-[-0.01em] text-white mb-6"
                   style={{ fontFamily: "var(--font-heading)" }}
                 >
                   {activeLoc.sysArch}
@@ -250,11 +250,11 @@ export function ProjectPageClient({ slug, project }: ProjectPageClientProps) {
                       key={metric.label}
                       className="rounded-xl border border-white/5 bg-white/[0.01] p-5 hover:bg-white/[0.02] hover:border-white/10 transition-all duration-300 group"
                     >
-                      <span className="block text-[10px] uppercase tracking-widest text-zinc-500 mb-1 group-hover:text-zinc-400 transition-colors duration-300">{metric.label}</span>
-                      <span className="block text-2xl font-semibold text-white tracking-tight mb-1" style={{ fontFamily: "var(--font-heading)" }}>
+                      <span className="block text-[10px] uppercase tracking-[0.15em] text-zinc-500 mb-1.5 group-hover:text-zinc-400 transition-colors duration-300">{metric.label}</span>
+                      <span className="block text-2xl font-medium text-white tracking-[-0.02em] mb-1" style={{ fontFamily: "var(--font-heading)" }}>
                         {metric.value}
                       </span>
-                      <p className="text-xs text-zinc-400 font-light leading-relaxed">{metric.desc}</p>
+                      <p className="text-xs text-zinc-400 leading-[1.6]">{metric.desc}</p>
                     </div>
                   ))}
                 </div>
@@ -266,24 +266,24 @@ export function ProjectPageClient({ slug, project }: ProjectPageClientProps) {
               <div className="border-t border-white/10 pt-10 space-y-8">
                 <div>
                   <h3
-                    className="text-xl font-semibold tracking-tight text-white mb-4"
+                    className="text-xl font-medium tracking-[-0.01em] text-white mb-4"
                     style={{ fontFamily: "var(--font-heading)" }}
                   >
                     {activeLoc.engineeringChallenge}
                   </h3>
-                  <p className="text-zinc-400 text-sm sm:text-base leading-relaxed font-light">
+                  <p className="text-zinc-400 text-sm sm:text-[15px] leading-[1.7]">
                     {activeLoc.challenges}
                   </p>
                 </div>
 
                 <div>
                   <h3
-                    className="text-xl font-semibold tracking-tight text-white mb-4"
+                    className="text-xl font-medium tracking-[-0.01em] text-white mb-4"
                     style={{ fontFamily: "var(--font-heading)" }}
                   >
                     {activeLoc.archSolution}
                   </h3>
-                  <p className="text-zinc-400 text-sm sm:text-base leading-relaxed font-light">
+                  <p className="text-zinc-400 text-sm sm:text-[15px] leading-[1.7]">
                     {activeLoc.solutions}
                   </p>
                 </div>
@@ -294,7 +294,7 @@ export function ProjectPageClient({ slug, project }: ProjectPageClientProps) {
             <FadeIn delay={0.35}>
               <div className="border-t border-white/10 pt-10">
                 <h3
-                  className="text-xl font-semibold tracking-tight text-white mb-6"
+                  className="text-xl font-medium tracking-[-0.01em] text-white mb-6"
                   style={{ fontFamily: "var(--font-heading)" }}
                 >
                   {activeLoc.techSchematics}
