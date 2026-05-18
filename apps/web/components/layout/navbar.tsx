@@ -7,15 +7,15 @@ import { useEffect, useRef, useState } from "react";
 const links = [
   {
     label: "Projects",
-    href: "#projects",
+    href: "/#projects",
   },
   {
     label: "Experience",
-    href: "#experience",
+    href: "/#experience",
   },
   {
     label: "Contact",
-    href: "#contact",
+    href: "/#contact",
   },
 ];
 

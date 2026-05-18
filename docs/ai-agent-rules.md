@@ -97,3 +97,45 @@ This should be maintained inside:
 
 ```text id
 ```
+
+
+# Verification Protocol
+# Verification Protocol
+
+After every meaningful implementation, AI agents MUST perform verification before committing changes.
+
+Required verification steps:
+
+* verify responsive behavior
+* verify there is no horizontal overflow
+* verify there are no console errors
+* verify animations remain smooth
+* verify accessibility is preserved
+* verify TypeScript safety
+* verify lint passes
+* verify production build succeeds
+
+When Playwright is available:
+
+* test mobile viewport behavior
+* test navigation interactions
+* test overlay/menu behavior
+* test scrolling interactions
+* test page transitions
+
+AI agents MUST NOT:
+
+* commit unverified code
+* ignore runtime errors
+* ignore layout breaking issues
+* bypass failed builds or lint checks
+
+Required final checks:
+
+* npm run lint
+* npm run build
+
+Only after successful verification:
+
+* commit changes
+* push to GitHub

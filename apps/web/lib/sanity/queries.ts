@@ -34,8 +34,22 @@ export const homePageQuery = `{
   },
   "projects": *[_type == "project" && featured == true] | order(publishedAt desc)[0...4]{
     title,
+    "slug": slug.current,
     description,
-    "stack": techStack
+    "stack": techStack,
+    "thumbnail": {
+      "url": thumbnail.asset->url,
+      "alt": thumbnail.alt
+    },
+    "coverVideo": {
+      "hlsUrl": coverVideo.hlsUrl,
+      "dashUrl": coverVideo.dashUrl,
+      "mp4Url": coverVideo.mp4Url,
+      "posterUrl": coverVideo.poster.asset->url
+    },
+    githubUrl,
+    liveUrl,
+    publishedAt
   },
   "experience": *[_type == "experience"] | order(order asc){
     year,
@@ -47,4 +61,28 @@ export const homePageQuery = `{
     category,
     items
   }
+}`;
+
+export const projectBySlugQuery = `*[_type == "project" && slug.current == $slug][0]{
+  title,
+  "slug": slug.current,
+  "thumbnail": {
+    "url": thumbnail.asset->url,
+    "alt": thumbnail.alt
+  },
+  "coverVideo": {
+    "hlsUrl": coverVideo.hlsUrl,
+    "dashUrl": coverVideo.dashUrl,
+    "mp4Url": coverVideo.mp4Url,
+    "posterUrl": coverVideo.poster.asset->url
+  },
+  description,
+  "stack": techStack,
+  githubUrl,
+  liveUrl,
+  publishedAt
+}`;
+
+export const projectSlugsQuery = `*[_type == "project"]{
+  "slug": slug.current
 }`;

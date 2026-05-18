@@ -1,9 +1,10 @@
 import { sanityClient } from "./client";
-import { homePageQuery } from "./queries";
+import { homePageQuery, projectBySlugQuery, projectSlugsQuery } from "./queries";
 import type {
   ContactSectionContent,
   HomePageContent,
   SectionContent,
+  ProjectContent,
 } from "./types";
 
 interface SanityHomePageResponse
@@ -64,15 +65,37 @@ const fallbackContent: HomePageContent = {
   projects: [
     {
       title: "Cloud Infrastructure Dashboard",
+      slug: "cloud-infrastructure-dashboard",
       description:
-        "A scalable monitoring platform built for cloud-native infrastructure management and operational analytics.",
-      stack: ["Next.js", "NestJS", "PostgreSQL"],
+        "A scalable monitoring platform built for cloud-native infrastructure management and operational analytics. It provides real-time telemetry, automated alerting, and visual orchestration for multi-cloud deployments.",
+      stack: ["Next.js", "NestJS", "PostgreSQL", "Google Cloud", "Docker"],
+      thumbnail: {
+        url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&h=800&q=80",
+        alt: "Cloud Infrastructure Dashboard Preview",
+      },
+      coverVideo: {
+        mp4Url: "https://assets.mixkit.co/videos/preview/mixkit-data-processors-working-on-computers-in-a-server-room-41764-large.mp4",
+      },
+      githubUrl: "https://github.com/dapaaa11",
+      liveUrl: "https://google.com",
+      publishedAt: "2026-05-10T12:00:00Z",
     },
     {
       title: "AI Workflow Platform",
+      slug: "ai-workflow-platform",
       description:
-        "Modern AI workflow system integrating automation pipelines, prompt orchestration, and scalable API architecture.",
-      stack: ["React", "Laravel", "OpenAI"],
+        "Modern AI workflow system integrating automation pipelines, prompt orchestration, and scalable API architecture. Supports autonomous agent swarms, vector databases, and high-throughput LLM semantic processing.",
+      stack: ["React", "Laravel", "OpenAI", "Pinecone", "Docker"],
+      thumbnail: {
+        url: "https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=1200&h=800&q=80",
+        alt: "AI Workflow Platform Preview",
+      },
+      coverVideo: {
+        mp4Url: "https://assets.mixkit.co/videos/preview/mixkit-man-working-on-a-computer-with-futuristic-graphics-41761-large.mp4",
+      },
+      githubUrl: "https://github.com/dapaaa11",
+      liveUrl: "https://google.com",
+      publishedAt: "2026-05-15T14:30:00Z",
     },
   ],
   experience: [
@@ -152,4 +175,39 @@ export async function getHomePageContent(): Promise<HomePageContent> {
   } catch {
     return fallbackContent;
   }
+}
+
+export async function getProjectBySlug(slug: string): Promise<ProjectContent | null> {
+  if (sanityClient) {
+    try {
+      const project = await sanityClient.fetch<ProjectContent | null>(
+        projectBySlugQuery,
+        { slug }
+      );
+      if (project) {
+        return project;
+      }
+    } catch {
+      // Fallback on error
+    }
+  }
+
+  // Fallback / mock data lookup
+  const mockProject = fallbackContent.projects.find((p) => p.slug === slug);
+  return mockProject ?? null;
+}
+
+export async function getAllProjectSlugs(): Promise<string[]> {
+  if (sanityClient) {
+    try {
+      const slugs = await sanityClient.fetch<{ slug: string }[]>(
+        projectSlugsQuery
+      );
+      return slugs.map((s) => s.slug);
+    } catch {
+      // Fallback on error
+    }
+  }
+
+  return fallbackContent.projects.map((p) => p.slug);
 }

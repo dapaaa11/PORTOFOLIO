@@ -6,8 +6,22 @@ export interface HeroContent {
 
 export interface ProjectContent {
   title: string;
+  slug: string;
   description: string;
   stack: string[];
+  thumbnail?: {
+    url?: string;
+    alt?: string;
+  };
+  coverVideo?: {
+    hlsUrl?: string;
+    dashUrl?: string;
+    mp4Url?: string;
+    posterUrl?: string;
+  };
+  githubUrl?: string;
+  liveUrl?: string;
+  publishedAt?: string;
 }
 
 export interface ExperienceContent {
