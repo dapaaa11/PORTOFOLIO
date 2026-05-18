@@ -8,7 +8,7 @@ import { SkillGroup } from "@/components/ui/skill-group";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-black pt-24 text-white sm:pt-16">
+    <main className="min-h-screen bg-black pt-16 text-white">
       {/* HERO SECTION */}
       <Container className="flex min-h-[calc(100svh-6rem)] items-center py-20 sm:min-h-[calc(100svh-4rem)] sm:py-24 lg:py-32">
         <div className="max-w-3xl">
