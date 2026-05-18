@@ -22,8 +22,33 @@ export interface SkillContent {
   items: string[];
 }
 
+export interface SectionContent {
+  eyebrow: string;
+  title: string;
+  description: string;
+}
+
+export interface SocialLinkContent {
+  label: string;
+  url: string;
+}
+
+export interface ContactSectionContent extends SectionContent {
+  ctaLabel: string;
+  email: string;
+  socialLinks: SocialLinkContent[];
+}
+
+export interface HomePageSectionsContent {
+  projects: SectionContent;
+  experience: SectionContent;
+  skills: SectionContent;
+  contact: ContactSectionContent;
+}
+
 export interface HomePageContent {
   hero: HeroContent;
+  sections: HomePageSectionsContent;
   projects: ProjectContent[];
   experience: ExperienceContent[];
   skills: SkillContent[];

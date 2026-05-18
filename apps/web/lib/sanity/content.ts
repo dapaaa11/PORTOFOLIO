@@ -1,6 +1,20 @@
 import { sanityClient } from "./client";
 import { homePageQuery } from "./queries";
-import type { HomePageContent } from "./types";
+import type {
+  ContactSectionContent,
+  HomePageContent,
+  SectionContent,
+} from "./types";
+
+interface SanityHomePageResponse
+  extends Omit<HomePageContent, "sections"> {
+  homePage?: {
+    projectsSection?: SectionContent;
+    experienceSection?: SectionContent;
+    skillsSection?: SectionContent;
+    contactSection?: ContactSectionContent;
+  };
+}
 
 const fallbackContent: HomePageContent = {
   hero: {
@@ -8,6 +22,44 @@ const fallbackContent: HomePageContent = {
     headline: "Building scalable\ndigital products\nwith modern\nweb architecture.",
     subheadline:
       "I design and develop modern digital systems focused on performance, scalability, and clean user experience.",
+  },
+  sections: {
+    projects: {
+      eyebrow: "Featured Work",
+      title: "Selected Projects",
+      description:
+        "A collection of frontend systems, cloud-native applications, and modern digital products focused on scalability and user experience.",
+    },
+    experience: {
+      eyebrow: "Experience",
+      title: "Engineering Journey",
+      description:
+        "Focused on building scalable systems, modern frontend experiences, and cloud-native applications.",
+    },
+    skills: {
+      eyebrow: "Tech Stack",
+      title: "Technologies & Tools",
+      description:
+        "Focused on modern frontend systems, scalable backend architecture, and cloud-native development workflows.",
+    },
+    contact: {
+      eyebrow: "Contact",
+      title: "Let's build something meaningful.",
+      description:
+        "Open for collaborations, freelance projects, and modern digital product development.",
+      ctaLabel: "Get in touch",
+      email: "dava@example.com",
+      socialLinks: [
+        {
+          label: "GitHub",
+          url: "https://github.com/dapaaa11",
+        },
+        {
+          label: "LinkedIn",
+          url: "https://linkedin.com",
+        },
+      ],
+    },
   },
   projects: [
     {
@@ -64,18 +116,31 @@ const fallbackContent: HomePageContent = {
   ],
 };
 
+function mergeHomePageSections(
+  content: SanityHomePageResponse["homePage"],
+): HomePageContent["sections"] {
+  return {
+    projects: content?.projectsSection ?? fallbackContent.sections.projects,
+    experience:
+      content?.experienceSection ?? fallbackContent.sections.experience,
+    skills: content?.skillsSection ?? fallbackContent.sections.skills,
+    contact: content?.contactSection ?? fallbackContent.sections.contact,
+  };
+}
+
 export async function getHomePageContent(): Promise<HomePageContent> {
   if (!sanityClient) {
     return fallbackContent;
   }
 
   try {
-    const content = await sanityClient.fetch<Partial<HomePageContent>>(
+    const content = await sanityClient.fetch<Partial<SanityHomePageResponse>>(
       homePageQuery,
     );
 
     return {
       hero: content.hero ?? fallbackContent.hero,
+      sections: mergeHomePageSections(content.homePage),
       projects: content.projects?.length
         ? content.projects
         : fallbackContent.projects,

@@ -1,4 +1,32 @@
 export const homePageQuery = `{
+  "homePage": *[_type == "homePage"][0]{
+    projectsSection{
+      eyebrow,
+      title,
+      description
+    },
+    experienceSection{
+      eyebrow,
+      title,
+      description
+    },
+    skillsSection{
+      eyebrow,
+      title,
+      description
+    },
+    contactSection{
+      eyebrow,
+      title,
+      description,
+      ctaLabel,
+      email,
+      socialLinks[]{
+        label,
+        url
+      }
+    }
+  },
   "hero": *[_type == "hero"][0]{
     eyebrow,
     headline,

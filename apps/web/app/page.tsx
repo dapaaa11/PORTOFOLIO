@@ -46,9 +46,9 @@ export default async function HomePage() {
       {/* PROJECTS SECTION */}
       <Section id="projects">
         <SectionTitle
-          eyebrow="Featured Work"
-          title="Selected Projects"
-          description="A collection of frontend systems, cloud-native applications, and modern digital products focused on scalability and user experience."
+          eyebrow={content.sections.projects.eyebrow}
+          title={content.sections.projects.title}
+          description={content.sections.projects.description}
         />
         <div className="mt-12 grid gap-4 sm:mt-16 sm:gap-6 lg:grid-cols-2">
           {content.projects.map((project) => (
@@ -65,9 +65,9 @@ export default async function HomePage() {
       {/* Experience Section */}
       <Section id="experience">
         <SectionTitle
-          eyebrow="Experience"
-          title="Engineering Journey"
-          description="Focused on building scalable systems, modern frontend experiences, and cloud-native applications."
+          eyebrow={content.sections.experience.eyebrow}
+          title={content.sections.experience.title}
+          description={content.sections.experience.description}
         />
 
         <div className="mt-12 sm:mt-16">
@@ -86,9 +86,9 @@ export default async function HomePage() {
       {/* Skills Section */}
       <Section id="skills">
         <SectionTitle
-          eyebrow="Tech Stack"
-          title="Technologies & Tools"
-          description="Focused on modern frontend systems, scalable backend architecture, and cloud-native development workflows."
+          eyebrow={content.sections.skills.eyebrow}
+          title={content.sections.skills.title}
+          description={content.sections.skills.description}
         />
 
         <div className="mt-12 grid gap-4 sm:mt-16 sm:gap-6 md:grid-cols-2">
@@ -105,34 +105,30 @@ export default async function HomePage() {
       {/* Contact Section */}
       <Section id="contact">
         <SectionTitle
-          eyebrow="Contact"
-          title="Let's build something meaningful."
-          description="Open for collaborations, freelance projects, and modern digital product development."
+          eyebrow={content.sections.contact.eyebrow}
+          title={content.sections.contact.title}
+          description={content.sections.contact.description}
         />
 
         <div className="mt-10 flex flex-col items-start gap-4 sm:mt-12 sm:flex-row sm:flex-wrap sm:items-center">
           <a
-            href="mailto:dava@example.com"
+            href={`mailto:${content.sections.contact.email}`}
             className="inline-flex min-h-11 items-center rounded-full border border-white/10 px-6 py-3 text-sm text-white transition-colors duration-300 hover:border-white/20 hover:bg-white hover:text-black"
           >
-            Get in touch
+            {content.sections.contact.ctaLabel}
           </a>
 
-          <a
-            href="https://github.com/dapaaa11"
-            target="_blank"
-            className="py-2 text-sm text-zinc-400 transition-colors duration-300 hover:text-white sm:py-0"
-          >
-            GitHub
-          </a>
-
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            className="py-2 text-sm text-zinc-400 transition-colors duration-300 hover:text-white sm:py-0"
-          >
-            LinkedIn
-          </a>
+          {content.sections.contact.socialLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.url}
+              target="_blank"
+              rel="noreferrer"
+              className="py-2 text-sm text-zinc-400 transition-colors duration-300 hover:text-white sm:py-0"
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
       </Section>
     </main>
