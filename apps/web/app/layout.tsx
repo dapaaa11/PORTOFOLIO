@@ -4,6 +4,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { SmoothScroll } from "@/components/motion/smooth-scroll";
 import { WebVitalsReporter } from "@/components/motion/web-vitals";
+import { LanguageProvider } from "@/lib/context/language-context";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -57,6 +58,12 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${manrope.variable} bg-black font-sans text-white antialiased`}
       >
+        <a 
+          href="#main-content" 
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2.5 focus:bg-zinc-900 focus:text-white focus:font-sans focus:text-xs focus:font-bold focus:uppercase focus:tracking-wider focus:border focus:border-white/20 focus:rounded-lg focus:outline-none focus:ring-2 focus:ring-white/40 focus:ring-offset-2 focus:ring-offset-black transition-all duration-300"
+        >
+          Skip to main content
+        </a>
         <WebVitalsReporter />
         {/* Person JSON-LD Schema for rich snippet indexing */}
         <script
@@ -64,9 +71,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
         <SmoothScroll>
-          <Navbar />
-          {children}
-          <Footer />
+          <LanguageProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </LanguageProvider>
         </SmoothScroll>
       </body>
     </html>

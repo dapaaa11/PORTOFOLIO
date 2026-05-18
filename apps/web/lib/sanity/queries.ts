@@ -32,7 +32,7 @@ export const homePageQuery = `{
     headline,
     subheadline
   },
-  "projects": *[_type == "project" && featured == true] | order(publishedAt desc)[0...4]{
+  "projects": *[_type == "project"] | order(featured desc, publishedAt desc)[0...4]{
     title,
     "slug": slug.current,
     description,

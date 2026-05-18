@@ -190,7 +190,8 @@ export async function getHomePageContent(): Promise<HomePageContent> {
         : fallbackContent.experience,
       skills: content.skills?.length ? content.skills : fallbackContent.skills,
     };
-  } catch {
+  } catch (error) {
+    console.error("Sanity fetch error in getHomePageContent:", error);
     return fallbackContent;
   }
 }
@@ -205,7 +206,8 @@ export async function getProjectBySlug(slug: string): Promise<ProjectContent | n
       if (project) {
         return project;
       }
-    } catch {
+    } catch (error) {
+      console.error(`Sanity fetch error in getProjectBySlug for slug ${slug}:`, error);
       // Fallback on error
     }
   }
@@ -222,7 +224,8 @@ export async function getAllProjectSlugs(): Promise<string[]> {
         projectSlugsQuery
       );
       return slugs.map((s) => s.slug);
-    } catch {
+    } catch (error) {
+      console.error("Sanity fetch error in getAllProjectSlugs:", error);
       // Fallback on error
     }
   }

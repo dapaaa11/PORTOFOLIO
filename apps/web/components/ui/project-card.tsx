@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import { useState, MouseEvent } from "react";
 
@@ -20,6 +20,7 @@ export function ProjectCard({
   status,
 }: ProjectCardProps) {
   const [coords, setCoords] = useState({ x: 0, y: 0 });
+  const shouldReduceMotion = useReducedMotion();
 
   const handleMouseMove = (e: MouseEvent<HTMLElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -30,10 +31,13 @@ export function ProjectCard({
   };
 
   return (
-    <Link href={`/projects/${slug}`} className="block h-full focus:outline-none">
+    <Link 
+      href={`/projects/${slug}`} 
+      className="block h-full rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+    >
       <motion.article
         onMouseMove={handleMouseMove}
-        whileHover={{ y: -4 }}
+        whileHover={shouldReduceMotion ? {} : { y: -4 }}
         transition={{
           duration: 0.4,
           ease: [0.16, 1, 0.3, 1],

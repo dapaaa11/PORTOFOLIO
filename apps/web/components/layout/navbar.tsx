@@ -3,21 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-
-const links = [
-  {
-    label: "Projects",
-    href: "/#projects",
-  },
-  {
-    label: "Experience",
-    href: "/#experience",
-  },
-  {
-    label: "Contact",
-    href: "/#contact",
-  },
-];
+import { useLanguage } from "@/lib/context/language-context";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,6 +11,23 @@ export function Navbar() {
   const overlayRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+
+  const { language, setLanguage, t } = useLanguage();
+
+  const links = [
+    {
+      label: t.nav.projects,
+      href: "/#projects",
+    },
+    {
+      label: t.nav.experience,
+      href: "/#experience",
+    },
+    {
+      label: t.nav.contact,
+      href: "/#contact",
+    },
+  ];
 
   useEffect(() => {
     if (!isOpen) {
@@ -92,29 +95,56 @@ export function Navbar() {
         </Link>
 
         {/* Primary Desktop Navigation with Premium Sliding Underline */}
-        <nav 
-          className="relative hidden items-center gap-8 md:flex" 
-          aria-label="Primary"
-          onMouseLeave={() => setHoveredIndex(null)}
-        >
-          {links.map((link, index) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              onMouseEnter={() => setHoveredIndex(index)}
-              className="relative py-1 text-sm text-zinc-400 transition-colors duration-300 hover:text-white"
+        <div className="hidden items-center gap-8 md:flex">
+          <nav 
+            className="relative flex items-center gap-8" 
+            aria-label="Primary"
+            onMouseLeave={() => setHoveredIndex(null)}
+          >
+            {links.map((link, index) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                onMouseEnter={() => setHoveredIndex(index)}
+                className="relative py-1 text-sm text-zinc-400 transition-colors duration-300 hover:text-white focus:outline-none focus-visible:ring-1 focus-visible:ring-white/40 rounded px-1.5"
+              >
+                <span className="relative z-10">{link.label}</span>
+                {hoveredIndex === index && (
+                  <motion.span
+                    layoutId="nav-underline"
+                    className="absolute left-0 right-0 bottom-0 h-px bg-white z-0"
+                    transition={{ type: "spring", stiffness: 350, damping: 28 }}
+                  />
+                )}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Premium Desktop Language Switcher */}
+          <div className="flex items-center gap-1.5 text-xs font-mono border-l border-white/10 pl-6 h-5">
+            <button
+              onClick={() => setLanguage("en")}
+              className={`transition-colors duration-300 hover:text-white focus:outline-none focus-visible:ring-1 focus-visible:ring-white/40 rounded px-1.5 ${
+                language === "en" ? "text-white font-medium" : "text-zinc-500"
+              }`}
+              aria-label="Switch language to English"
+              aria-pressed={language === "en"}
             >
-              <span className="relative z-10">{link.label}</span>
-              {hoveredIndex === index && (
-                <motion.span
-                  layoutId="nav-underline"
-                  className="absolute left-0 right-0 bottom-0 h-px bg-white z-0"
-                  transition={{ type: "spring", stiffness: 350, damping: 28 }}
-                />
-              )}
-            </Link>
-          ))}
-        </nav>
+              EN
+            </button>
+            <span className="text-zinc-700 select-none">/</span>
+            <button
+              onClick={() => setLanguage("id")}
+              className={`transition-colors duration-300 hover:text-white focus:outline-none focus-visible:ring-1 focus-visible:ring-white/40 rounded px-1.5 ${
+                language === "id" ? "text-white font-medium" : "text-zinc-500"
+              }`}
+              aria-label="Switch language to Indonesian"
+              aria-pressed={language === "id"}
+            >
+              ID
+            </button>
+          </div>
+        </div>
 
         <button
           ref={menuButtonRef}
@@ -194,7 +224,38 @@ export function Navbar() {
                 ))}
               </nav>
 
-              <div className="border-t border-white/10 pt-6">
+              <div className="border-t border-white/10 pt-6 flex flex-col gap-6">
+                {/* Premium Mobile Language Selector */}
+                <div className="flex items-center gap-4 text-sm font-mono">
+                  <span className="text-zinc-500 uppercase tracking-wider text-xs select-none">Language:</span>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => setLanguage("en")}
+                      className={`px-3.5 py-1 rounded-full border text-xs tracking-wider transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
+                        language === "en"
+                          ? "border-white bg-white text-black font-semibold"
+                          : "border-white/10 text-zinc-400 hover:border-white/30 hover:text-white"
+                      }`}
+                      aria-label="Switch mobile viewport to English"
+                      aria-pressed={language === "en"}
+                    >
+                      EN
+                    </button>
+                    <button
+                      onClick={() => setLanguage("id")}
+                      className={`px-3.5 py-1 rounded-full border text-xs tracking-wider transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
+                        language === "id"
+                          ? "border-white bg-white text-black font-semibold"
+                          : "border-white/10 text-zinc-400 hover:border-white/30 hover:text-white"
+                      }`}
+                      aria-label="Switch mobile viewport to Indonesian"
+                      aria-pressed={language === "id"}
+                    >
+                      ID
+                    </button>
+                  </div>
+                </div>
+
                 <p className="max-w-sm text-sm leading-relaxed text-zinc-500">
                   Full-Stack Engineer & Cloud Architect focused on scalable,
                   high-performance web systems.
@@ -206,9 +267,9 @@ export function Navbar() {
                     closeMenu();
                     menuButtonRef.current?.focus();
                   }}
-                  className="mt-6 inline-flex min-h-11 items-center rounded-full border border-white/10 px-5 text-sm text-zinc-300 transition-colors duration-200 hover:border-white/20 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/30"
+                  className="mt-2 inline-flex min-h-11 items-center justify-center rounded-full border border-white/10 px-5 text-sm text-zinc-300 transition-colors duration-200 hover:border-white/20 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/30"
                 >
-                  Close
+                  {t.nav.close}
                 </button>
               </div>
             </motion.div>
