@@ -5,8 +5,12 @@ import { SectionTitle } from "@/components/ui/section-title";
 import { ProjectCard } from "@/components/ui/project-card";
 import { ExperienceItem } from "@/components/ui/experience-item";
 import { SkillGroup } from "@/components/ui/skill-group";
+import { getHomePageContent } from "@/lib/sanity/content";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const content = await getHomePageContent();
+  const headlineLines = content.hero.headline.split("\n").filter(Boolean);
+
   return (
     <main className="min-h-screen bg-black pt-16 text-white">
       {/* HERO SECTION */}
@@ -14,7 +18,7 @@ export default function HomePage() {
         <div className="max-w-3xl">
           <FadeIn>
             <p className="mb-5 max-w-xs text-xs uppercase leading-relaxed tracking-[0.24em] text-zinc-500 sm:mb-6 sm:max-w-none sm:text-sm sm:tracking-[0.3em]">
-              Full-Stack Engineer & Cloud Architect
+              {content.hero.eyebrow}
             </p>
           </FadeIn>
 
@@ -23,20 +27,17 @@ export default function HomePage() {
               className="text-[clamp(2.75rem,15vw,4.5rem)] font-semibold leading-[0.95] tracking-tight lg:text-7xl"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Building scalable
-              <br />
-              digital products
-              <br />
-              with modern
-              <br />
-              web architecture.
+              {headlineLines.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
             </h1>
           </FadeIn>
 
           <FadeIn delay={0.2}>
             <p className="mt-7 max-w-xl text-base leading-relaxed text-zinc-400 sm:mt-8 lg:text-lg">
-              I design and develop modern digital systems focused on
-              performance, scalability, and clean user experience.
+              {content.hero.subheadline}
             </p>
           </FadeIn>
         </div>
@@ -50,17 +51,14 @@ export default function HomePage() {
           description="A collection of frontend systems, cloud-native applications, and modern digital products focused on scalability and user experience."
         />
         <div className="mt-12 grid gap-4 sm:mt-16 sm:gap-6 lg:grid-cols-2">
-          <ProjectCard
-            title="Cloud Infrastructure Dashboard"
-            description="A scalable monitoring platform built for cloud-native infrastructure management and operational analytics."
-            stack={["Next.js", "NestJS", "PostgreSQL"]}
-          />
-
-          <ProjectCard
-            title="AI Workflow Platform"
-            description="Modern AI workflow system integrating automation pipelines, prompt orchestration, and scalable API architecture."
-            stack={["React", "Laravel", "OpenAI"]}
-          />
+          {content.projects.map((project) => (
+            <ProjectCard
+              key={project.title}
+              title={project.title}
+              description={project.description}
+              stack={project.stack}
+            />
+          ))}
         </div>
       </Section>
 
@@ -73,19 +71,15 @@ export default function HomePage() {
         />
 
         <div className="mt-12 sm:mt-16">
-          <ExperienceItem
-            year="2024 - Present"
-            role="Full-Stack Developer"
-            company="Freelance & Independent Projects"
-            description="Developing modern web applications using scalable frontend architecture, backend systems, and cloud-native workflows."
-          />
-
-          <ExperienceItem
-            year="2023 - 2024"
-            role="Frontend Developer"
-            company="Personal Product Development"
-            description="Focused on building responsive interfaces, reusable design systems, and performant React applications."
-          />
+          {content.experience.map((item) => (
+            <ExperienceItem
+              key={`${item.company}-${item.role}`}
+              year={item.year}
+              role={item.role}
+              company={item.company}
+              description={item.description}
+            />
+          ))}
         </div>
       </Section>
 
@@ -98,36 +92,13 @@ export default function HomePage() {
         />
 
         <div className="mt-12 grid gap-4 sm:mt-16 sm:gap-6 md:grid-cols-2">
-          <SkillGroup
-            title="Frontend"
-            items={[
-              "Next.js",
-              "React",
-              "TypeScript",
-              "TailwindCSS",
-              "Framer Motion",
-            ]}
-          />
-
-          <SkillGroup
-            title="Backend"
-            items={["NestJS", "Laravel", "Node.js", "PostgreSQL", "REST API"]}
-          />
-
-          <SkillGroup
-            title="Cloud & DevOps"
-            items={["Google Cloud", "Docker", "Cloud Run", "Firebase", "CI/CD"]}
-          />
-
-          <SkillGroup
-            title="AI & Automation"
-            items={[
-              "OpenAI API",
-              "Claude API",
-              "Prompt Engineering",
-              "Workflow Automation",
-            ]}
-          />
+          {content.skills.map((skill) => (
+            <SkillGroup
+              key={skill.category}
+              title={skill.category}
+              items={skill.items}
+            />
+          ))}
         </div>
       </Section>
 
