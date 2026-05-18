@@ -10,7 +10,7 @@ export function Container({
   className = "",
 }: ContainerProps) {
   return (
-    <div className={container-layout }>
+    <div className={`container-layout ${className}`}>
       {children}
     </div>
   );
