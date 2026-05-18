@@ -1,7 +1,9 @@
+import { Container } from "@/components/layout/container";
+
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-black text-white">
-      <section className="container-layout flex min-h-screen items-center">
+      <Container className="flex min-h-screen items-center">
         <div className="max-w-4xl">
           <p className="mb-4 text-sm uppercase tracking-[0.3em] text-zinc-500">
             Full-Stack Architect & Cloud Engineer
@@ -21,7 +23,7 @@ export default function HomePage() {
             modern frontend craftsmanship, and cloud-native architecture.
           </p>
         </div>
-      </section>
+      </Container>
     </main>
   );
 }
