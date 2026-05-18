@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/footer";
 import { SmoothScroll } from "@/components/motion/smooth-scroll";
 import { WebVitalsReporter } from "@/components/motion/web-vitals";
 import { LanguageProvider } from "@/lib/context/language-context";
+import { BatikOverlay } from "@/components/layout/batik-overlay";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -72,6 +73,7 @@ export default function RootLayout({
         />
         <SmoothScroll>
           <LanguageProvider>
+            <BatikOverlay />
             <Navbar />
             {children}
             <Footer />
