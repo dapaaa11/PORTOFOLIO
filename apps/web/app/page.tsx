@@ -130,6 +130,40 @@ export default function HomePage() {
           />
         </div>
       </Section>
+
+      {/* Contact Section */}
+      <Section id="contact">
+  <SectionTitle
+    eyebrow="Contact"
+    title="Let’s build something meaningful."
+    description="Open for collaborations, freelance projects, and modern digital product development."
+  />
+
+  <div className="mt-12 flex flex-wrap items-center gap-4">
+    <a
+      href="mailto:dava@example.com"
+      className="rounded-full border border-white/10 px-6 py-3 text-sm text-white transition-colors duration-300 hover:border-white/20 hover:bg-white hover:text-black"
+    >
+      Get in touch
+    </a>
+
+    <a
+      href="https://github.com/dapaaa11"
+      target="_blank"
+      className="text-sm text-zinc-400 transition-colors duration-300 hover:text-white"
+    >
+      GitHub
+    </a>
+
+    <a
+      href="https://linkedin.com"
+      target="_blank"
+      className="text-sm text-zinc-400 transition-colors duration-300 hover:text-white"
+    >
+      LinkedIn
+    </a>
+  </div>
+</Section>
     </main>
   );
 }
