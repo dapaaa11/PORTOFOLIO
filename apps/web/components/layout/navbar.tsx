@@ -21,6 +21,7 @@ const links = [
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -83,20 +84,34 @@ export function Navbar() {
       <div className="container-layout flex h-16 items-center justify-between">
         <Link
           href="/"
-          className="shrink-0 text-sm font-medium tracking-tight text-white"
+          className="shrink-0 text-sm font-medium tracking-tight text-white relative group"
           onClick={closeMenu}
         >
-          Dava Ardana
+          <span>Dava Ardana</span>
+          <span className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full" />
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
-          {links.map((link) => (
+        {/* Primary Desktop Navigation with Premium Sliding Underline */}
+        <nav 
+          className="relative hidden items-center gap-8 md:flex" 
+          aria-label="Primary"
+          onMouseLeave={() => setHoveredIndex(null)}
+        >
+          {links.map((link, index) => (
             <Link
               key={link.label}
               href={link.href}
-              className="py-1 text-sm text-zinc-400 transition-colors duration-300 hover:text-white"
+              onMouseEnter={() => setHoveredIndex(index)}
+              className="relative py-1 text-sm text-zinc-400 transition-colors duration-300 hover:text-white"
             >
-              {link.label}
+              <span className="relative z-10">{link.label}</span>
+              {hoveredIndex === index && (
+                <motion.span
+                  layoutId="nav-underline"
+                  className="absolute left-0 right-0 bottom-0 h-px bg-white z-0"
+                  transition={{ type: "spring", stiffness: 350, damping: 28 }}
+                />
+              )}
             </Link>
           ))}
         </nav>
