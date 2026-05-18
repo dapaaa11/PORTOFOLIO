@@ -122,24 +122,39 @@ export function HomePageClient({ initialContent }: HomePageClientProps) {
         {/* 
           Cinematic Engineering Portrait - Integrated right-side background focal element.
           - Absolutely positioned, z-0 to sit softly behind absolute foreground focus.
-          - Restrained 0.88 opacity & brightness blending to keep visual dominance minimal.
-          - Advanced radial masking to dissolve all borders completely into the dark space.
+          - Advanced multi-stage radial masking to dissolve all borders organically into the dark space.
+          - Embedded atmospheric haze layers (left, bottom, top-right) to blend native lights with system topology.
+          - Subtly softened using a 0.5px blur and 0.95 contrast tuning to match cinematic blueprint depth.
           - Hidden on mobile to prioritize mobile rendering speed and keep layouts clean.
         */}
         <div 
           className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none select-none z-0 w-[420px] h-[520px] lg:w-[480px] lg:h-[600px] transition-all duration-700 opacity-85 lg:opacity-90"
           style={{
-            maskImage: "radial-gradient(circle at 55% 45%, black 25%, rgba(0, 0, 0, 0.4) 60%, transparent 95%)",
-            WebkitMaskImage: "radial-gradient(circle at 55% 45%, black 25%, rgba(0, 0, 0, 0.4) 60%, transparent 95%)",
+            maskImage: "radial-gradient(circle at 55% 45%, black 15%, rgba(0, 0, 0, 0.85) 30%, rgba(0, 0, 0, 0.45) 55%, rgba(0, 0, 0, 0.15) 75%, transparent 95%)",
+            WebkitMaskImage: "radial-gradient(circle at 55% 45%, black 15%, rgba(0, 0, 0, 0.85) 30%, rgba(0, 0, 0, 0.45) 55%, rgba(0, 0, 0, 0.15) 75%, transparent 95%)",
           }}
         >
           <div className="relative w-full h-full overflow-hidden">
-            {/* Atmospheric overlay to blend native warm highlight with blueprint colors */}
+            {/* Ambient Cinematic Fog & Haze Overlays - Seamless portrait-to-background transitions */}
+            {/* Left Edge Fog: Smooth horizontal fade transition */}
+            <div className="absolute -left-12 top-1/4 h-[55%] w-28 rounded-full bg-radial from-white/[0.035] via-transparent to-transparent blur-3xl z-20" />
+            
+            {/* Lower Edge Fog: Dissolves lower body into dark blueprint space */}
+            <div className="absolute left-1/10 bottom-0 h-24 w-[80%] rounded-full bg-radial from-white/[0.045] via-transparent to-transparent blur-2xl z-20" />
+            
+            {/* Upper-Right Edge Fog: Amplifies native highlight halo organically */}
+            <div className="absolute -right-12 -top-12 h-60 w-60 rounded-full bg-radial from-white/[0.055] via-transparent to-transparent blur-3xl z-20" />
+
+            {/* Vertical ambient transition overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" />
+
             <img 
               src="/portrait.jpg" 
               alt="Dava Ardana - Cinematic Portrait"
-              className="w-full h-full object-cover object-center brightness-[0.72] contrast-[1.08] saturate-[0.95]"
+              className="w-full h-full object-cover object-center saturation-[0.90]"
+              style={{
+                filter: "blur(0.5px) brightness(0.68) contrast(0.95)",
+              }}
               loading="eager"
             />
           </div>
