@@ -34,7 +34,7 @@ export function SmoothScroll({ children }: SmoothScrollProps) {
 
       lenis = new Lenis({
         anchors: {
-          offset: -80,
+          offset: 80,
         },
         duration: 1.1,
         easing: (time) => Math.min(1, 1.001 - 2 ** (-10 * time)),
