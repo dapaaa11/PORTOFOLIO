@@ -17,7 +17,7 @@ interface BatikOverlayProps {
 
 export function BatikOverlay({
   enabled = true,
-  patternOpacity = 0.02,
+  patternOpacity = 0.045,
 }: BatikOverlayProps) {
   if (!enabled) return null;
 
@@ -28,10 +28,10 @@ export function BatikOverlay({
     >
       {/* Premium Atmospheric Depth Layer - Slow organic radial glow */}
       <div 
-        className="absolute -top-1/4 left-1/2 h-[70vh] w-[120vw] -translate-x-1/2 rounded-[50%] bg-radial from-white/[0.03] via-transparent to-transparent blur-3xl" 
+        className="absolute -top-1/4 left-1/2 h-[75vh] w-[125vw] -translate-x-1/2 rounded-[50%] bg-radial from-white/[0.04] via-transparent to-transparent blur-3xl" 
       />
       <div 
-        className="absolute top-1/2 left-1/3 h-[50vh] w-[80vw] -translate-y-1/2 rounded-[50%] bg-radial from-white/[0.015] via-transparent to-transparent blur-3xl" 
+        className="absolute top-1/2 left-1/3 h-[55vh] w-[85vw] -translate-y-1/2 rounded-[50%] bg-radial from-white/[0.025] via-transparent to-transparent blur-3xl" 
       />
 
       {/* 
@@ -45,8 +45,8 @@ export function BatikOverlay({
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cdefs%3E%3Cpattern id='kawung' width='120' height='120' patternUnits='userSpaceOnUse'%3E%3Ccircle cx='60' cy='60' r='58' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='${patternOpacity}' /%3E%3Ccircle cx='0' cy='0' r='58' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='${patternOpacity}' /%3E%3Ccircle cx='120' cy='0' r='58' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='${patternOpacity}' /%3E%3Ccircle cx='0' cy='120' r='58' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='${patternOpacity}' /%3E%3Ccircle cx='120' cy='120' r='58' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='${patternOpacity}' /%3E%3Crect x='57.5' y='57.5' width='5' height='5' transform='rotate%2845 60 60%29' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='${patternOpacity}' /%3E%3C/pattern%3E%3C/defs%3E%3Crect width='120' height='120' fill='url%28%23kawung%29' /%3E%3C/svg%3E")`,
           backgroundRepeat: "repeat",
-          maskImage: "radial-gradient(circle at 50% 30%, black 20%, rgba(0, 0, 0, 0.4) 60%, transparent 100%)",
-          WebkitMaskImage: "radial-gradient(circle at 50% 30%, black 20%, rgba(0, 0, 0, 0.4) 60%, transparent 100%)",
+          maskImage: "radial-gradient(circle at 50% 30%, black 30%, rgba(0, 0, 0, 0.6) 70%, transparent 100%)",
+          WebkitMaskImage: "radial-gradient(circle at 50% 30%, black 30%, rgba(0, 0, 0, 0.6) 70%, transparent 100%)",
         }}
       />
 
