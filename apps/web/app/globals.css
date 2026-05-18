@@ -9,7 +9,7 @@
   --border: #1a1a1a;
 
   --font-sans: var(--font-inter);
-  --font-serif: var(--font-playfair);
+  --font-heading: var(--font-manrope);
 }
 
 html {

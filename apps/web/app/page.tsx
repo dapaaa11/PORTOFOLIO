@@ -4,23 +4,27 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-black text-white">
       <Container className="flex min-h-screen items-center">
-        <div className="max-w-4xl">
-          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-zinc-500">
-            Full-Stack Architect & Cloud Engineer
+        <div className="max-w-3xl">
+          <p className="mb-6 text-sm uppercase tracking-[0.3em] text-zinc-500">
+            Full-Stack Engineer & Cloud Architect
           </p>
 
           <h1
-            className="font-serif text-6xl leading-none md:text-8xl"
-            style={{ fontFamily: "var(--font-playfair)" }}
+            className="text-5xl font-semibold leading-[0.95] tracking-tight md:text-7xl"
+            style={{ fontFamily: "var(--font-heading)" }}
           >
-            Architecting
+            Building scalable
             <br />
-            Digital Excellence
+            digital products
+            <br />
+            with modern
+            <br />
+            web architecture.
           </h1>
 
-          <p className="mt-8 max-w-xl text-lg leading-relaxed text-zinc-400">
-            Building scalable digital systems with cinematic precision,
-            modern frontend craftsmanship, and cloud-native architecture.
+          <p className="mt-8 max-w-xl text-base leading-relaxed text-zinc-400 md:text-lg">
+            I design and develop modern digital systems focused on
+            performance, scalability, and clean user experience.
           </p>
         </div>
       </Container>
