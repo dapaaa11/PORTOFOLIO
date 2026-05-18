@@ -88,10 +88,11 @@ export function HomePageClient({ initialContent }: HomePageClientProps) {
   const resolvedSkills = t.skillsList;
 
   return (
-    <main id="main-content" className="min-h-screen bg-black pt-16 text-white">
+    <main id="main-content" className="min-h-screen bg-black pt-16 text-white overflow-hidden">
       {/* HERO SECTION */}
-      <Container className="flex min-h-[calc(100svh-6rem)] items-center py-20 sm:min-h-[calc(100svh-4rem)] sm:py-24 lg:py-32">
-        <div className="max-w-3xl">
+      <Container className="relative flex min-h-[calc(100svh-6rem)] items-center py-20 sm:min-h-[calc(100svh-4rem)] sm:py-24 lg:py-32">
+        {/* Left Typography Block - Primary visual focus */}
+        <div className="relative z-10 max-w-2xl lg:max-w-3xl">
           <FadeIn>
             <p className="mb-5 max-w-xs text-xs uppercase leading-relaxed tracking-[0.24em] text-zinc-500 sm:mb-6 sm:max-w-none sm:text-sm sm:tracking-[0.3em]">
               {heroContent.eyebrow}
@@ -116,6 +117,32 @@ export function HomePageClient({ initialContent }: HomePageClientProps) {
               {heroContent.subheadline}
             </p>
           </FadeIn>
+        </div>
+
+        {/* 
+          Cinematic Engineering Portrait - Integrated right-side background focal element.
+          - Absolutely positioned, z-0 to sit softly behind absolute foreground focus.
+          - Restrained 0.88 opacity & brightness blending to keep visual dominance minimal.
+          - Advanced radial masking to dissolve all borders completely into the dark space.
+          - Hidden on mobile to prioritize mobile rendering speed and keep layouts clean.
+        */}
+        <div 
+          className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none select-none z-0 w-[420px] h-[520px] lg:w-[480px] lg:h-[600px] transition-all duration-700 opacity-85 lg:opacity-90"
+          style={{
+            maskImage: "radial-gradient(circle at 55% 45%, black 25%, rgba(0, 0, 0, 0.4) 60%, transparent 95%)",
+            WebkitMaskImage: "radial-gradient(circle at 55% 45%, black 25%, rgba(0, 0, 0, 0.4) 60%, transparent 95%)",
+          }}
+        >
+          <div className="relative w-full h-full overflow-hidden">
+            {/* Atmospheric overlay to blend native warm highlight with blueprint colors */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" />
+            <img 
+              src="/portrait.jpg" 
+              alt="Dava Ardana - Cinematic Portrait"
+              className="w-full h-full object-cover object-center brightness-[0.72] contrast-[1.08] saturate-[0.95]"
+              loading="eager"
+            />
+          </div>
         </div>
       </Container>
 
