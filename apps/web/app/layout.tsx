@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { SmoothScroll } from "@/components/motion/smooth-scroll";
+import { WebVitalsReporter } from "@/components/motion/web-vitals";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -57,6 +57,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${manrope.variable} bg-black font-sans text-white antialiased`}
       >
+        <WebVitalsReporter />
         {/* Person JSON-LD Schema for rich snippet indexing */}
         <script
           type="application/ld+json"
