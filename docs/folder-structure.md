@@ -1,22 +1,39 @@
 # Folder Structure Documentation
 
 This document explains:
-- Folder responsibilities
-- File purposes
-- Architectural boundaries
-- Code organization strategy
+
+* folder responsibilities
+* architectural boundaries
+* code organization strategy
+* frontend scalability structure
+
+The project structure is designed to:
+
+* maintain clean architecture
+* support scalable frontend development
+* improve maintainability
+* simplify collaboration with AI agents
+* reduce unnecessary complexity
+
+The structure prioritizes:
+
+* modularity
+* readability
+* performance
+* simplicity
 
 ---
 
 # Root Structure
 
+```text
 /apps
   /web
   /studio
 
 /docs
-
 /public
+```
 
 ---
 
@@ -25,11 +42,13 @@ This document explains:
 Main frontend application built with Next.js App Router.
 
 Responsibilities:
-- UI rendering
-- Page routing
-- Motion system
-- Streaming integration
-- CMS rendering
+
+* UI rendering
+* page routing
+* motion system
+* CMS rendering
+* media playback
+* responsive layouts
 
 ---
 
@@ -38,24 +57,25 @@ Responsibilities:
 Sanity CMS Studio.
 
 Responsibilities:
-- Project management
-- Content editing
-- Media uploads
-- Portfolio publishing
+
+* project management
+* content editing
+* media uploads
+* portfolio publishing
 
 ---
 
 # Frontend Structure
 
+```text
 /app
 /components
 /features
 /hooks
 /lib
-/services
-/store
 /styles
 /utils
+```
 
 ---
 
@@ -64,88 +84,75 @@ Responsibilities:
 Next.js App Router directory.
 
 Contains:
-- Routes
-- Layouts
-- Metadata
-- Server components
 
-Example:
+* routes
+* layouts
+* metadata
+* server components
+* global configuration
 
+---
+
+# Example Structure
+
+```text
 /app
   layout.tsx
   page.tsx
   globals.css
+```
 
 ---
 
-## layout.tsx
+# layout.tsx
 
 Purpose:
-- Global layout wrapper
-- Navigation mounting
-- Footer rendering
-- Font initialization
-- Theme provider
+
+* global layout wrapper
+* font initialization
+* metadata setup
+* provider mounting
+* global UI structure
 
 ---
 
-## page.tsx
+# page.tsx
 
 Purpose:
-- Homepage composition
-- Section orchestration
-- Main landing page structure
+
+* homepage composition
+* section orchestration
+* landing page structure
 
 ---
 
-## globals.css
+# globals.css
 
 Purpose:
-- Global styles
-- Tailwind layers
-- CSS variables
-- Typography reset
+
+* global styles
+* CSS variables
+* typography system
+* base reset styles
 
 ---
 
 # /components
 
-Reusable UI components.
+Reusable UI components shared across the application.
 
-Structure:
+---
 
+# Structure
+
+```text
 /components
-  /cinematic
   /layout
   /motion
   /player
+  /shared
   /ui
-
----
-
-# /components/cinematic
-
-Contains cinematic experience components.
-
-Examples:
-- HeroBackground.tsx
-- NoiseOverlay.tsx
-- CinematicIntro.tsx
-
-Purpose:
-- Visual storytelling
-- Cinematic layers
-- Atmosphere effects
-
----
-
-## HeroBackground.tsx
-
-Purpose:
-- Render stitched background video
-- Apply gradients
-- Handle overlays
-- Optimize autoplay behavior
+```
 
 ---
 
@@ -154,88 +161,159 @@ Purpose:
 Layout-related components.
 
 Examples:
-- Navbar.tsx
-- Footer.tsx
-- Container.tsx
+
+```text
+Navbar.tsx
+Footer.tsx
+Container.tsx
+Section.tsx
+```
+
+Purpose:
+
+* page structure
+* layout consistency
+* responsive spacing
+* shared wrappers
 
 ---
 
-## Navbar.tsx
+# Container.tsx
 
 Purpose:
-- Sticky navigation
-- Scroll detection
-- Blur transition
-- Active section tracking
+
+* centralized layout width
+* responsive spacing
+* reusable content wrapper
+
+---
+
+# Navbar.tsx
+
+Purpose:
+
+* global navigation
+* section navigation
+* sticky behavior
+* active state detection
 
 ---
 
 # /components/motion
 
-Animation utilities and wrappers.
+Reusable motion utilities and wrappers.
 
 Examples:
-- FadeIn.tsx
-- RevealText.tsx
-- MotionWrapper.tsx
+
+```text
+FadeIn.tsx
+Reveal.tsx
+MotionWrapper.tsx
+```
 
 Purpose:
-- Shared animation logic
-- Framer Motion abstraction
-- Reusable transitions
+
+* shared animation logic
+* reusable transitions
+* motion consistency
 
 ---
 
 # /components/player
 
-Streaming player components.
+Media playback components.
 
 Examples:
-- ShowreelPlayer.tsx
-- VideoControls.tsx
+
+```text
+ShowreelPlayer.tsx
+VideoControls.tsx
+```
 
 Purpose:
-- Google Stitch playback
-- HLS/DASH rendering
-- Custom player UI
+
+* HLS/DASH playback
+* media rendering
+* playback interaction
+* adaptive streaming UI
 
 ---
 
-## ShowreelPlayer.tsx
+# ShowreelPlayer.tsx
 
 Purpose:
-- Initialize Shaka Player
-- Handle adaptive streaming
-- Control autoplay logic
-- Manage buffering state
+
+* initialize player
+* handle adaptive streaming
+* control playback behavior
+* manage loading state
+
+---
+
+# /components/shared
+
+Shared application components.
+
+Examples:
+
+```text
+SectionHeader.tsx
+Divider.tsx
+BackgroundGrid.tsx
+```
+
+Purpose:
+
+* reusable visual structure
+* shared layout patterns
+* consistent section composition
 
 ---
 
 # /components/ui
 
-Shared design system components.
+Core design system components.
 
 Examples:
-- Button.tsx
-- Card.tsx
-- SectionTitle.tsx
+
+```text
+Button.tsx
+Card.tsx
+Badge.tsx
+Input.tsx
+```
 
 Purpose:
-- Consistent UI system
-- Reusable styling
-- Shared variants
+
+* reusable UI system
+* styling consistency
+* shared interaction patterns
 
 ---
 
 # /features
 
-Feature-based architecture.
+Feature-based application architecture.
 
-Each folder owns:
-- UI
-- Logic
-- Hooks
-- Animations
+Each feature owns:
+
+* UI
+* local logic
+* animations
+* feature-specific components
+
+---
+
+# Structure
+
+```text
+/features
+  /hero
+  /projects
+  /showreel
+  /experience
+  /skills
+```
 
 ---
 
@@ -244,40 +322,51 @@ Each folder owns:
 Hero section system.
 
 Files:
-- HeroSection.tsx
-- HeroContent.tsx
-- HeroVideo.tsx
+
+```text
+HeroSection.tsx
+HeroContent.tsx
+HeroMedia.tsx
+```
 
 Responsibilities:
-- Intro animation
-- Hero typography
-- Background playback
+
+* hero layout
+* intro rendering
+* responsive media
+* headline presentation
 
 ---
 
 # /features/projects
 
-Portfolio project system.
+Portfolio projects system.
 
 Files:
-- ProjectGrid.tsx
-- ProjectCard.tsx
-- FeaturedProject.tsx
+
+```text
+ProjectGrid.tsx
+ProjectCard.tsx
+FeaturedProject.tsx
+```
 
 Responsibilities:
-- Render CMS projects
-- Grid layout
-- Card interactions
+
+* render CMS projects
+* responsive layouts
+* project interactions
+* project presentation
 
 ---
 
-## ProjectCard.tsx
+# ProjectCard.tsx
 
 Purpose:
-- Display project preview
-- Handle hover animation
-- Show tech stack
-- Link to project detail
+
+* display project preview
+* render tech stack
+* handle hover interaction
+* link to project detail
 
 ---
 
@@ -286,13 +375,56 @@ Purpose:
 Showreel experience system.
 
 Files:
-- ShowreelSection.tsx
-- PlayerWrapper.tsx
+
+```text
+ShowreelSection.tsx
+PlayerWrapper.tsx
+```
 
 Responsibilities:
-- Render streaming player
-- Integrate Google Stitch
-- Manage playback UX
+
+* media rendering
+* adaptive streaming
+* playback interaction
+* player integration
+
+---
+
+# /features/experience
+
+Experience section system.
+
+Files:
+
+```text
+ExperienceSection.tsx
+ExperienceItem.tsx
+```
+
+Responsibilities:
+
+* career timeline
+* technical specialization
+* structured experience layout
+
+---
+
+# /features/skills
+
+Skills presentation system.
+
+Files:
+
+```text
+SkillsSection.tsx
+SkillGroup.tsx
+```
+
+Responsibilities:
+
+* render technology stack
+* organize skill categories
+* maintain responsive layouts
 
 ---
 
@@ -301,28 +433,35 @@ Responsibilities:
 Reusable React hooks.
 
 Examples:
-- useScrollProgress.ts
-- useCursorGlow.ts
-- useParallax.ts
+
+```text
+useScrollProgress.ts
+useMediaQuery.ts
+useParallax.ts
+```
 
 Purpose:
-- Shared interaction logic
-- Animation state
-- UI behavior
+
+* shared interaction logic
+* reusable UI behavior
+* motion utilities
 
 ---
 
 # /lib
 
-Core libraries and integrations.
+Core integrations and utilities.
 
-Structure:
+---
 
+# Structure
+
+```text
 /lib
   /sanity
-  /stitcher
-  /player
+  /streaming
   /motion
+```
 
 ---
 
@@ -331,82 +470,84 @@ Structure:
 Sanity CMS integration.
 
 Files:
-- client.ts
-- queries.ts
+
+```text
+client.ts
+queries.ts
+```
 
 Purpose:
-- Fetch CMS content
-- GROQ queries
-- CMS utilities
+
+* configure CMS client
+* fetch content
+* manage GROQ queries
 
 ---
 
-## client.ts
+# client.ts
 
 Purpose:
-- Configure Sanity client
-- API connection setup
+
+* initialize Sanity client
+* manage API configuration
 
 ---
 
-# /lib/stitcher
+# /lib/streaming
 
-Google Stitch integration logic.
+Streaming integration utilities.
 
 Files:
-- stitcher.ts
-- manifest.ts
+
+```text
+player.ts
+manifest.ts
+```
 
 Purpose:
-- Handle streaming URLs
-- Manage playback sessions
-- Load manifests
+
+* manage playback configuration
+* handle manifests
+* configure adaptive streaming
 
 ---
 
-# /services
+# /lib/motion
 
-Business logic layer.
+Motion utilities.
 
-Examples:
-- project.service.ts
-- media.service.ts
+Files:
 
-Purpose:
-- Data transformation
-- API abstraction
-- Shared backend logic
-
----
-
-# /store
-
-Global state management.
-
-Examples:
-- ui.store.ts
-- player.store.ts
+```text
+transitions.ts
+variants.ts
+```
 
 Purpose:
-- Shared application state
-- UI toggles
-- Playback state
+
+* shared animation presets
+* reusable transition systems
 
 ---
 
 # /styles
 
-Design system styling.
+Global styling system.
 
 Examples:
-- globals.css
-- typography.css
-- animations.css
+
+```text
+globals.css
+typography.css
+animations.css
+```
 
 Purpose:
-- Global visual consistency
-- Motion tokens
-- Typography system
+
+* visual consistency
+* typography configuration
+* motion styling
+* shared design tokens
 
 ---
 
@@ -415,14 +556,18 @@ Purpose:
 Pure utility functions.
 
 Examples:
-- formatDate.ts
-- cn.ts
-- calculateScroll.ts
+
+```text
+cn.ts
+formatDate.ts
+calculateScroll.ts
+```
 
 Purpose:
-- Stateless helpers
-- Formatting utilities
-- Shared calculations
+
+* stateless utilities
+* formatting helpers
+* shared calculations
 
 ---
 
@@ -430,15 +575,79 @@ Purpose:
 
 Static assets.
 
-Structure:
+---
 
+# Structure
+
+```text
 /public
   /images
   /videos
   /posters
   /icons
+```
 
-Purpose:
-- Static media delivery
-- SEO assets
-- Preview posters
+---
+
+# Responsibilities
+
+Used for:
+
+* static assets
+* SEO previews
+* fallback media
+* optimized image delivery
+
+---
+
+# Architectural Philosophy
+
+The project architecture prioritizes:
+
+* simplicity
+* scalability
+* modularity
+* maintainability
+
+Avoid:
+
+* unnecessary abstractions
+* over-engineering
+* excessive folder nesting
+* complex state systems
+
+This is a:
+
+* modern portfolio platform
+* frontend engineering showcase
+* technical personal brand system
+
+NOT:
+
+* enterprise SaaS architecture
+* microservice-heavy platform
+* admin dashboard ecosystem
+
+---
+
+# Final Architecture Goal
+
+The structure should support:
+
+* scalable frontend development
+* clean engineering workflow
+* reusable systems
+* maintainable codebase
+* smooth collaboration with AI agents
+
+The final architecture should feel:
+
+* modern
+* organized
+* technical
+* high-performance
+* production-ready
+
+Identity:
+
+> Dava Ardana — Full-Stack Engineer & Cloud Architect.

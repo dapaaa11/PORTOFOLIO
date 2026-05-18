@@ -2,23 +2,25 @@
 
 # Purpose
 
-This document explains the complete technical architecture behind the Dava Ardana Portfolio platform.
+This document explains the technical architecture behind the Dava Ardana Portfolio platform.
 
 The architecture is designed to:
 
-* Deliver a cinematic and premium user experience
-* Maintain high frontend performance
-* Support scalable content management
-* Enable adaptive video streaming
-* Demonstrate modern cloud-native engineering practices
+* maintain high frontend performance
+* support scalable content management
+* enable optimized media delivery
+* demonstrate modern frontend engineering practices
+* provide clean and maintainable development workflows
 
 The system prioritizes:
 
-* Performance
-* Scalability
-* Maintainability
-* Clean architecture
-* Modern developer experience
+* performance
+* scalability
+* maintainability
+* modular architecture
+* developer experience
+
+The platform is intentionally lightweight while still showcasing production-ready engineering practices.
 
 ---
 
@@ -26,47 +28,52 @@ The system prioritizes:
 
 The platform combines:
 
-* Modern frontend rendering
-* Dynamic CMS-driven content
-* Cinematic motion systems
-* Cloud-native media streaming
-* Edge-optimized delivery
+* modern frontend rendering
+* CMS-driven content
+* smooth interaction systems
+* adaptive media streaming
+* optimized deployment workflows
 
 Core technologies:
 
 * Next.js frontend
 * Sanity CMS
 * Google Cloud media pipeline
-* Google Video Stitcher API
-* Cloud CDN infrastructure
+* Adaptive streaming delivery
+* Edge-optimized hosting
 
-The architecture is intentionally lightweight while still showcasing enterprise-grade engineering practices.
+The architecture focuses on:
+
+* responsiveness
+* clean rendering
+* scalable structure
+* maintainable frontend systems
 
 ---
 
 # High-Level Architecture Flow
 
-```text
+```text id="7sbbz4"
 Client Browser
         ↓
-Next.js Frontend Application
+Next.js Frontend
         ↓
 Dynamic Content Rendering
         ↓
 Sanity CMS API
         ↓
-Google Stitch Streaming Pipeline
+Streaming Pipeline
         ↓
-Cloud CDN Delivery
+CDN Delivery
         ↓
-Adaptive Video Playback
+Adaptive Media Playback
 ```
 
 ---
 
 # Frontend Architecture
 
-## Framework
+# Framework
 
 The frontend is built using:
 
@@ -76,116 +83,118 @@ The frontend is built using:
 
 Purpose:
 
-* Server-side rendering
+* server-side rendering
 * SEO optimization
-* Smooth route transitions
-* Streaming-friendly rendering
-* Modern React architecture
+* scalable routing
+* responsive rendering
+* modern React architecture
 
 ---
 
-## Responsibilities
+# Frontend Responsibilities
 
 The frontend handles:
 
 * UI rendering
-* Section orchestration
-* Motion system integration
+* section composition
+* motion integration
 * CMS content rendering
-* Streaming playback integration
-* Responsive behavior
-* User interaction management
+* media playback
+* responsive layouts
+* interaction handling
 
 ---
 
-## Frontend Stack
+# Frontend Stack
 
-| Technology    | Responsibility               |
-| ------------- | ---------------------------- |
-| Next.js       | Application framework        |
-| React         | UI rendering                 |
-| TypeScript    | Type safety                  |
-| TailwindCSS   | Styling system               |
-| Framer Motion | UI animations                |
-| GSAP          | Cinematic transitions        |
-| Zustand       | Lightweight state management |
+| Technology    | Responsibility        |
+| ------------- | --------------------- |
+| Next.js       | Application framework |
+| React         | UI rendering          |
+| TypeScript    | Type safety           |
+| TailwindCSS   | Styling system        |
+| Framer Motion | UI transitions        |
+| GSAP          | Scroll choreography   |
 
 ---
 
 # Rendering Strategy
 
-## Server Components
+# Server Components
 
 Used for:
 
-* Static sections
+* static sections
 * SEO-critical content
-* Performance optimization
+* optimized rendering
+* CMS data fetching
 
 Benefits:
 
-* Reduced client-side JavaScript
-* Faster initial rendering
-* Better Core Web Vitals
+* reduced client-side JavaScript
+* faster initial rendering
+* improved Core Web Vitals
 
 ---
 
-## Client Components
+# Client Components
 
 Used for:
 
-* Interactive animations
-* Video playback
-* Motion-heavy sections
-* Cursor interactions
+* interactive sections
+* media playback
+* motion-heavy interactions
+* dynamic UI behavior
 
 Benefits:
 
-* Smooth UX
-* Real-time interaction handling
+* smoother interactions
+* responsive user experience
 
 ---
 
 # CMS Architecture
 
-## CMS Platform
+# CMS Platform
 
-The platform uses Sanity CMS as a headless content management system.
+The platform uses:
+
+* Sanity CMS
 
 Purpose:
 
-* Dynamic portfolio management
-* Project publishing
-* Hero content editing
-* Media management
-* Experience timeline updates
+* dynamic portfolio management
+* project publishing
+* media management
+* experience timeline updates
+* content scalability
 
 ---
 
-## CMS Responsibilities
+# CMS Responsibilities
 
 Sanity CMS manages:
 
-* Featured projects
-* Project descriptions
-* Tech stack content
-* Experience timeline
-* Hero text
-* Social links
-* Showreel metadata
+* featured projects
+* project descriptions
+* technology stacks
+* experience timeline
+* hero content
+* social links
+* media metadata
 
 ---
 
-## Content Workflow
+# Content Workflow
 
-```text
+```text id="snm4gd"
 Create Content
         ↓
-Upload Media Assets
+Upload Media
         ↓
 Publish in Sanity CMS
         ↓
-Frontend Fetches Content
+Frontend Fetch Layer
         ↓
 Dynamic Rendering
 ```
@@ -194,51 +203,49 @@ Dynamic Rendering
 
 # Streaming Architecture
 
-## Purpose
+# Purpose
 
 The streaming system powers:
 
-* Cinematic hero background video
-* Interactive showreels
-* High-resolution project reels
-* Adaptive streaming experiences
+* hero background media
+* showreel playback
+* project preview videos
+* adaptive streaming delivery
 
 The architecture prioritizes:
 
-* Smooth playback
-* Low buffering
-* Global delivery performance
-* Adaptive bitrate streaming
+* smooth playback
+* optimized loading
+* low buffering
+* responsive media delivery
 
 ---
 
 # Streaming Pipeline
 
-```text
-Raw Video Assets
+```text id="6z1g77"
+Raw Media Assets
         ↓
 Google Cloud Storage
         ↓
 Google Transcoder API
         ↓
-ABR HLS/DASH Renditions
+HLS/DASH Renditions
         ↓
-Google Video Stitcher API
+Streaming Delivery
         ↓
-Cloud CDN
-        ↓
-Frontend Video Player
+Frontend Media Player
 ```
 
 ---
 
-## Google Cloud Storage
+# Google Cloud Storage
 
 Purpose:
 
-* Store raw cinematic assets
-* Store transcoded media
-* Handle scalable media delivery
+* store source assets
+* store transcoded media
+* support scalable media delivery
 
 Supported assets:
 
@@ -246,63 +253,63 @@ Supported assets:
 * MOV
 * HLS manifests
 * DASH manifests
-* Poster images
+* poster images
 
 ---
 
-## Google Transcoder API
+# Google Transcoder API
 
 Purpose:
 
-* Generate adaptive bitrate renditions
-* Optimize streaming quality
-* Produce HLS/DASH outputs
+* generate adaptive bitrate renditions
+* optimize streaming quality
+* produce HLS/DASH outputs
 
 Responsibilities:
 
-* Video encoding
-* Resolution ladder generation
-* Compression optimization
+* video encoding
+* bitrate ladder generation
+* compression optimization
 
 ---
 
-## Google Video Stitcher API
+# Streaming Delivery
 
 Purpose:
 
-* Manage streaming sessions
-* Deliver optimized manifests
-* Handle playback orchestration
+* deliver adaptive streaming manifests
+* optimize playback sessions
+* improve playback stability
 
 Responsibilities:
 
-* Manifest generation
-* Session delivery
-* Adaptive stream handling
+* manifest delivery
+* playback orchestration
+* adaptive bitrate handling
 
 ---
 
 # CDN Delivery Layer
 
-## Cloud CDN
+# CDN Infrastructure
 
 Purpose:
 
-* Reduce playback latency
-* Improve global streaming performance
-* Cache media closer to users
+* reduce playback latency
+* optimize global media delivery
+* improve caching efficiency
 
 Benefits:
 
-* Faster video startup
-* Reduced buffering
-* Better international performance
+* faster startup time
+* reduced buffering
+* improved international performance
 
 ---
 
 # Frontend Media Player
 
-## Recommended Player
+# Recommended Player
 
 The platform uses:
 
@@ -311,68 +318,87 @@ The platform uses:
 
 ---
 
-## Responsibilities
+# Responsibilities
 
 The media player handles:
 
 * HLS playback
 * DASH playback
-* Adaptive bitrate switching
-* Playback controls
-* Buffer management
-* Streaming state handling
+* adaptive bitrate switching
+* playback controls
+* buffering management
+* responsive playback behavior
 
 ---
 
-## Playback Features
+# Playback Features
 
 Features include:
 
-* Cinematic autoplay
-* Muted background playback
-* Lazy video initialization
-* Poster preloading
-* Smooth fade transitions
+* muted autoplay
+* adaptive streaming
+* lazy video initialization
+* poster preloading
+* smooth media transitions
+
+Avoid:
+
+* aggressive autoplay behavior
+* unnecessary playback initialization
 
 ---
 
 # Motion System Architecture
 
-## Purpose
+# Purpose
 
 The motion system creates:
 
-* Cinematic interaction flow
-* Smooth visual storytelling
-* Premium engineering aesthetics
+* smooth interaction flow
+* visual continuity
+* responsive transitions
+* structured interface pacing
+
+Motion should feel:
+
+* subtle
+* technical
+* intentional
+* lightweight
 
 ---
 
-## Motion Stack
+# Motion Stack
 
 | Technology    | Purpose             |
 | ------------- | ------------------- |
 | Framer Motion | UI transitions      |
-| GSAP          | Cinematic animation |
+| GSAP          | Scroll choreography |
 | Lenis         | Smooth scrolling    |
 
 ---
 
-## Motion Responsibilities
+# Motion Responsibilities
 
 The system handles:
 
-* Hero reveal animations
-* Scroll-linked transitions
-* Portfolio hover effects
-* Typography animations
-* Page transitions
+* section reveal animations
+* scroll transitions
+* hover interactions
+* typography transitions
+* navigation feedback
+
+The motion system avoids:
+
+* excessive cinematic behavior
+* animation-heavy layouts
+* unnecessary visual effects
 
 ---
 
 # Deployment Architecture
 
-## Frontend Deployment
+# Frontend Deployment
 
 Platform:
 
@@ -381,13 +407,13 @@ Platform:
 Responsibilities:
 
 * Next.js hosting
-* Edge rendering
+* edge rendering
 * CDN integration
-* Serverless deployment
+* serverless deployment
 
 ---
 
-## Streaming Infrastructure
+# Streaming Infrastructure
 
 Platform:
 
@@ -396,15 +422,14 @@ Platform:
 Services:
 
 * Google Cloud Storage
-* Transcoder API
-* Video Stitcher API
+* Google Transcoder API
 * Cloud CDN
 
 ---
 
 # Performance Strategy
 
-## Core Performance Goals
+# Core Performance Goals
 
 | Metric     | Target  |
 | ---------- | ------- |
@@ -417,84 +442,121 @@ Services:
 
 # Optimization Strategy
 
-## Frontend Optimization
+# Frontend Optimization
 
 Techniques:
 
-* Dynamic imports
-* Route-level code splitting
-* Server components
-* Lazy hydration
+* dynamic imports
+* route-level code splitting
+* server components
+* lazy loading
 
 ---
 
-## Media Optimization
+# Media Optimization
 
 Techniques:
 
-* Adaptive bitrate streaming
-* Lazy-loaded videos
-* AVIF/WebP image delivery
-* Deferred playback loading
+* adaptive bitrate streaming
+* deferred media loading
+* optimized image formats
+* CDN caching
 
 ---
 
-## Animation Optimization
+# Animation Optimization
 
 Rules:
 
 * GPU-accelerated transforms
-* Transform/opacity animation only
-* Avoid layout thrashing
-* Minimize repaint-heavy effects
+* transform/opacity animation only
+* avoid layout thrashing
+* reduce repaint-heavy effects
 
 ---
 
 # Responsive Architecture
 
-## Mobile Strategy
+# Mobile Strategy
 
 Priorities:
 
-* Reduced animation intensity
-* Lower bitrate defaults
-* Optimized video loading
-* Touch-friendly interactions
+* reduced animation intensity
+* optimized media loading
+* touch-friendly interactions
+* smooth rendering
 
 ---
 
-## Desktop Strategy
+# Desktop Strategy
 
 Priorities:
 
-* Full cinematic experience
-* Advanced motion system
-* Large typography rendering
-* High-resolution streaming
+* spacious layouts
+* advanced interaction systems
+* smooth motion choreography
+* high-resolution presentation
 
 ---
 
 # Security Considerations
 
-## Security Features
+# Security Features
 
-* Signed CDN URLs
-* Secure environment variables
-* Minimal API exposure
-* CMS access control
+Use:
+
+* secure environment variables
+* restricted CMS access
 * HTTPS-only delivery
+* protected API tokens
+
+---
+
+# Architectural Philosophy
+
+The architecture should feel:
+
+* modern
+* lightweight
+* scalable
+* maintainable
+* production-ready
+
+Avoid:
+
+* over-engineering
+* unnecessary abstractions
+* excessive complexity
+* enterprise-heavy architecture patterns
+
+This is:
+
+* a modern portfolio platform
+* a frontend engineering showcase
+* a technical personal branding system
+
+NOT:
+
+* an enterprise SaaS ecosystem
+* a microservice-heavy platform
+* an admin-focused application
 
 ---
 
 # Final Architecture Goal
 
-The platform architecture should feel like:
+The final architecture should support:
 
-* A luxury engineering product
-* A cinematic cloud-native experience
-* A premium software architect portfolio
-* A modern high-performance frontend platform
+* scalable frontend development
+* clean engineering workflows
+* responsive interaction systems
+* maintainable codebases
+* modern deployment practices
+
+The platform should communicate:
+
+> Modern frontend engineering through clean technical architecture.
 
 Identity:
 
-> Dava Ardana — Elite Full-Stack Architect & Cloud Engineer.
+> Dava Ardana — Full-Stack Engineer & Cloud Architect.

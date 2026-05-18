@@ -2,24 +2,26 @@
 
 # Purpose
 
-This document defines the cinematic motion system used throughout the Dava Ardana Portfolio platform.
+This document defines the motion system used throughout the Dava Ardana Portfolio platform.
 
 The motion system is designed to:
 
-* Create immersive visual storytelling
-* Establish premium engineering aesthetics
-* Improve interaction quality
-* Enhance perceived smoothness
-* Deliver cinematic digital experiences
+* Improve interaction clarity
+* Create smooth navigation flow
+* Support visual hierarchy
+* Enhance perceived responsiveness
+* Deliver a refined frontend experience
 
-Motion should never feel decorative without purpose.
+Motion should support usability first.
 
-Every animation must:
+Animations must:
 
-* Support user focus
-* Improve flow
-* Reinforce hierarchy
-* Strengthen visual identity
+* guide attention
+* improve readability
+* reinforce structure
+* maintain smooth interaction quality
+
+The system avoids excessive cinematic behavior and prioritizes restrained technical motion.
 
 ---
 
@@ -29,132 +31,121 @@ Every animation must:
 
 Motion should feel:
 
-* Cinematic
-* Smooth
-* Intentional
-* Elegant
-* Technical
-* Precise
-
-The animation system is inspired by:
-
-* Luxury technology websites
-* Modern operating systems
-* Cinematic interfaces
-* Editorial digital experiences
-
----
-
-# Emotional Direction
-
-Animations should create the feeling of:
-
-* High-end engineering
-* Precision-crafted software
-* Cloud-native modernity
-* Technical sophistication
+* smooth
+* intentional
+* lightweight
+* responsive
+* technical
+* modern
 
 The interface should feel:
 
-* Alive
-* Responsive
-* Premium
-* Controlled
+* calm
+* controlled
+* polished
+* high-performance
+
+Avoid:
+
+* dramatic transitions
+* excessive cinematic effects
+* decorative motion overload
+* aggressive animation timing
+
+---
+
+# Motion Direction
+
+The motion system is inspired by:
+
+* Linear
+* Vercel
+* Raycast
+* modern operating systems
+* high-performance product interfaces
+
+The experience should resemble:
+
+* premium frontend tooling
+* modern software products
+* structured digital systems
 
 ---
 
 # Motion Principles
 
-## 1. Motion Must Guide Attention
+# 1. Motion Must Improve Clarity
 
 Animations should:
 
-* Highlight hierarchy
-* Guide reading flow
-* Reveal important content
-* Improve pacing
+* guide visual focus
+* support content hierarchy
+* improve reading flow
+* create interaction continuity
 
 Avoid:
 
-* Random movement
-* Decorative distractions
+* random motion
+* distracting movement
+* unnecessary visual effects
 
 ---
 
-## 2. Motion Must Feel Natural
+# 2. Motion Must Feel Natural
 
 Transitions should:
 
-* Ease smoothly
-* Avoid abrupt stops
-* Maintain continuity
+* ease smoothly
+* maintain continuity
+* feel responsive
+* avoid abrupt stopping
 
-Preferred:
+Preferred easing:
 
-* EaseOutExpo
-* EaseInOut
-* Custom cubic-bezier easing
+```text id="n9drig"
+easeOutExpo
+easeInOut
+cubic-bezier(0.16, 1, 0.3, 1)
+```
 
 ---
 
-## 3. Motion Must Respect Performance
+# 3. Motion Must Respect Performance
 
 All motion should prioritize:
 
 * GPU acceleration
-* Smooth frame rendering
-* Low layout recalculation
+* smooth frame rendering
+* low layout recalculation
+* responsive interaction timing
+
+Performance is more important than visual spectacle.
 
 ---
 
 # Animation Stack
 
-| Technology     | Responsibility           |
-| -------------- | ------------------------ |
-| Framer Motion  | UI transitions           |
-| GSAP           | Cinematic sequencing     |
-| Lenis          | Smooth scrolling         |
-| CSS Transforms | Lightweight interactions |
+| Technology     | Responsibility      |
+| -------------- | ------------------- |
+| Framer Motion  | UI transitions      |
+| GSAP           | Scroll choreography |
+| Lenis          | Smooth scrolling    |
+| CSS Transforms | Lightweight motion  |
 
 ---
-
-# Motion Architecture
 
 # Motion Responsibilities
 
 The motion system handles:
 
-* Hero reveal animations
-* Scroll-based transitions
-* Typography reveals
-* Page transitions
-* Portfolio interactions
-* Cursor effects
-* Cinematic overlays
+* section reveals
+* typography transitions
+* page transitions
+* hover interactions
+* smooth scrolling
+* navigation feedback
 
----
-
-# Motion Layering Strategy
-
-The platform uses layered motion:
-
-```text id="h11y1s"
-Background Motion
-        ↓
-Section Motion
-        ↓
-Typography Motion
-        ↓
-Interaction Motion
-        ↓
-Micro-interactions
-```
-
-Purpose:
-
-* Create cinematic depth
-* Avoid flat UI feeling
-* Improve visual pacing
+Motion should remain subtle throughout the platform.
 
 ---
 
@@ -166,10 +157,10 @@ Page transitions create continuity between sections and routes.
 
 Transitions should feel:
 
-* Cinematic
-* Soft
-* Atmospheric
-* Smooth
+* smooth
+* minimal
+* responsive
+* clean
 
 ---
 
@@ -177,10 +168,16 @@ Transitions should feel:
 
 Effects:
 
-* Fade-through-black
-* Blur layering
-* Opacity transitions
-* Subtle scale movement
+* opacity transitions
+* subtle blur fade
+* minimal translate movement
+* soft scaling
+
+Avoid:
+
+* dramatic full-screen effects
+* heavy cinematic overlays
+* exaggerated distortion
 
 ---
 
@@ -188,41 +185,28 @@ Effects:
 
 | Interaction      | Duration  |
 | ---------------- | --------- |
-| Section Reveal   | 500ms     |
-| Page Transition  | 700ms     |
-| Hero Intro       | 1200ms    |
-| Hover Transition | 200–300ms |
+| Section Reveal   | 400–500ms |
+| Page Transition  | 500–700ms |
+| Hover Transition | 180–250ms |
 
 ---
 
-# Easing Strategy
-
-Preferred easing:
-
-```text id="9xaz1m"
-easeOutExpo
-easeInOut
-cubic-bezier(0.16, 1, 0.3, 1)
-```
-
-Purpose:
-
-* Smooth acceleration
-* Premium feel
-* Natural motion pacing
-
----
-
-# Hero Animation System
+# Hero Motion System
 
 # Purpose
 
-The Hero animation establishes:
+The Hero motion system establishes:
 
-* First impression
-* Brand atmosphere
-* Cinematic identity
-* Technical elegance
+* technical identity
+* visual pacing
+* smooth first interaction
+
+The Hero should feel:
+
+* modern
+* calm
+* structured
+* confident
 
 ---
 
@@ -230,16 +214,14 @@ The Hero animation establishes:
 
 Sequence:
 
-```text id="6s6ocj"
-Background Fade In
+```text id="0tknnm"
+Background Fade
         ↓
-Noise Overlay Appears
+Headline Reveal
         ↓
-Typography Stagger Reveal
+Description Fade
         ↓
-Subheadline Fade
-        ↓
-Scroll Indicator Reveal
+Interaction Prompt
 ```
 
 ---
@@ -248,31 +230,31 @@ Scroll Indicator Reveal
 
 Effects:
 
-* Stagger reveal
-* Opacity fade
-* Slight vertical movement
-* Letter spacing transitions
+* stagger reveal
+* opacity fade
+* slight vertical movement
 
-Purpose:
+Avoid:
 
-* Create cinematic pacing
-* Emphasize editorial typography
+* dramatic cinematic sequencing
+* oversized movement
+* excessive delays
 
 ---
 
-# Background Video Motion
+# Background Motion
 
 Behavior:
 
-* Smooth opacity entrance
-* Slow ambient movement
-* Cinematic looping
+* soft ambient movement
+* smooth opacity transitions
+* lightweight visual layering
 
 Requirements:
 
-* Muted autoplay
-* No aggressive cuts
-* Seamless looping
+* optimized rendering
+* minimal GPU pressure
+* responsive playback
 
 ---
 
@@ -280,26 +262,18 @@ Requirements:
 
 # Purpose
 
-Scroll interactions create:
+Scroll interactions improve:
 
-* Depth
-* Motion continuity
-* Cinematic navigation flow
-
----
-
-# Scroll Philosophy
+* navigation flow
+* reading rhythm
+* perceived smoothness
 
 Scrolling should feel:
 
-* Heavy
-* Smooth
-* Inertial
-* Cinematic
-
-The page should feel like:
-
-> navigating through a digital film sequence.
+* smooth
+* responsive
+* lightweight
+* controlled
 
 ---
 
@@ -311,61 +285,59 @@ Technology:
 
 Responsibilities:
 
-* Inertia scrolling
-* Smooth easing
-* Scroll normalization
+* normalize scrolling
+* improve smoothness
+* maintain interaction consistency
 
 ---
 
 # Scroll Effects
 
-## Parallax Movement
+# Scroll Reveal
 
 Purpose:
-Create visual depth.
-
-Used on:
-
-* Hero backgrounds
-* Section imagery
-* Portfolio thumbnails
-
----
-
-## Scroll-Linked Reveal
-
-Purpose:
-Reveal content progressively.
+Reveal content progressively while maintaining readability.
 
 Effects:
 
-* Fade-in
-* Vertical movement
-* Opacity layering
+* opacity transitions
+* subtle translate movement
+* staggered appearance
 
 ---
 
-## Perspective Transforms
+# Parallax Usage
 
-Purpose:
-Enhance cinematic atmosphere.
+Parallax should remain minimal.
 
-Used carefully to avoid:
+Used only for:
 
-* Motion sickness
-* Over-animation
+* subtle depth
+* visual layering
+* background separation
+
+Avoid:
+
+* aggressive parallax movement
+* motion-heavy perspective effects
 
 ---
 
-# Portfolio Hover System
+# Hover Interaction System
 
 # Purpose
 
-Portfolio hover interactions increase:
+Hover interactions improve:
 
-* Visual engagement
-* Cinematic presentation
-* Perceived depth
+* responsiveness
+* interaction feedback
+* visual polish
+
+Hover effects should feel:
+
+* subtle
+* technical
+* modern
 
 ---
 
@@ -373,10 +345,16 @@ Portfolio hover interactions increase:
 
 Effects:
 
-* Slight zoom
-* Greyscale-to-color transition
-* Shadow enhancement
-* Blur refinement
+* slight scale
+* soft contrast enhancement
+* grayscale refinement
+* smooth shadow transition
+
+Avoid:
+
+* large zoom effects
+* dramatic glow
+* excessive blur
 
 ---
 
@@ -384,48 +362,37 @@ Effects:
 
 | Effect  | Duration |
 | ------- | -------- |
-| Scale   | 250ms    |
-| Opacity | 200ms    |
-| Blur    | 300ms    |
+| Scale   | 200ms    |
+| Opacity | 180ms    |
+| Shadow  | 250ms    |
 
 ---
 
-# Typography Animation System
+# Typography Motion
 
 # Purpose
 
-Typography motion enhances:
+Typography animation improves:
 
-* Editorial storytelling
-* Visual pacing
-* Reading hierarchy
-
----
-
-# Typography Reveal Effects
-
-Effects:
-
-* Stagger reveal
-* Character fade
-* Word-by-word animation
-* Smooth opacity layering
+* hierarchy
+* pacing
+* readability
 
 ---
 
-# Typography Motion Rules
+# Typography Effects
 
-Preferred:
+Use:
 
-* Opacity animation
-* Transform movement
-* Small positional shifts
+* stagger reveal
+* opacity fade
+* minimal translate movement
 
 Avoid:
 
-* Large bouncing
-* Excessive rotation
-* Cartoon motion
+* character explosions
+* large rotations
+* decorative motion effects
 
 ---
 
@@ -433,32 +400,29 @@ Avoid:
 
 # Purpose
 
-Cursor interactions create:
+Cursor interactions provide subtle interaction feedback.
 
-* Premium interactivity
-* Technical sophistication
-* Modern UI feel
+Cursor behavior should feel:
 
----
-
-# Cursor Features
-
-Optional interactions:
-
-* Cursor magnetism
-* Glow effects
-* Hover distortion
-* Dynamic scaling
+* minimal
+* lightweight
+* responsive
 
 ---
 
-# Cursor Usage Rules
+# Optional Cursor Features
 
-Cursor effects should:
+Allowed:
 
-* Remain subtle
-* Never block usability
-* Avoid distracting behavior
+* subtle scaling
+* soft glow
+* minimal magnetic interaction
+
+Avoid:
+
+* oversized cursor systems
+* distracting hover distortion
+* heavy trailing effects
 
 ---
 
@@ -466,26 +430,24 @@ Cursor effects should:
 
 # Purpose
 
-Section reveals improve:
+Section reveals create:
 
-* Reading rhythm
-* Content pacing
-* Visual immersion
+* structured pacing
+* content rhythm
+* smoother reading flow
 
 ---
 
 # Reveal Strategy
 
-Content appears progressively:
+Content should appear progressively:
 
-```text id="d99o2h"
-Section Enter
-        ↓
+```text id="3s1m6k"
 Container Fade
         ↓
 Typography Reveal
         ↓
-Card Stagger Animation
+Card Transition
 ```
 
 ---
@@ -494,11 +456,12 @@ Card Stagger Animation
 
 # Performance Philosophy
 
-Motion quality should never compromise:
+Motion should never compromise:
 
-* Frame rate
-* Responsiveness
-* Device stability
+* responsiveness
+* rendering performance
+* interaction smoothness
+* device stability
 
 ---
 
@@ -508,14 +471,14 @@ Use:
 
 * transform
 * opacity
-* scale
 * translate3d
+* scale
 
 Benefits:
 
 * GPU acceleration
-* Smoother rendering
-* Better performance
+* smoother rendering
+* lower layout cost
 
 ---
 
@@ -523,38 +486,41 @@ Benefits:
 
 Avoid:
 
-* Width/height animation
-* Top/left positioning animation
-* Heavy blur stacking
-* Continuous repaint effects
+* width/height animation
+* top/left positioning
+* excessive blur stacking
+* continuous repaint-heavy effects
 
 ---
 
-# Optimization Strategy
+# Responsive Motion Strategy
 
-## Desktop
+# Desktop
 
-Allow:
+Desktop may include:
 
-* Advanced motion layering
-* Higher visual complexity
-* Full cinematic effects
+* layered transitions
+* advanced reveal timing
+* smoother interaction choreography
+
+Motion should remain restrained.
 
 ---
 
-## Mobile
+# Mobile
+
+Mobile should prioritize:
+
+* smooth rendering
+* reduced animation intensity
+* lower GPU usage
+* faster interaction feedback
 
 Reduce:
 
-* Motion intensity
-* Blur effects
-* Continuous animations
-
-Prioritize:
-
-* Smooth performance
-* Faster rendering
-* Lower GPU load
+* blur
+* layered transitions
+* continuous motion systems
 
 ---
 
@@ -564,15 +530,15 @@ Prioritize:
 
 The platform must support:
 
-```css id="b6oylb"
+```css id="u8ezmq"
 prefers-reduced-motion
 ```
 
 Purpose:
 
-* Accessibility compliance
-* Improved usability
-* Motion-sensitive users
+* accessibility compliance
+* improved usability
+* reduced motion sensitivity
 
 ---
 
@@ -580,10 +546,10 @@ Purpose:
 
 When enabled:
 
-* Disable parallax
-* Simplify transitions
-* Reduce stagger animations
-* Remove heavy movement
+* disable parallax
+* simplify transitions
+* reduce stagger animations
+* remove continuous motion
 
 ---
 
@@ -591,15 +557,15 @@ When enabled:
 
 The motion system should feel like:
 
-* A cinematic operating system
-* A luxury engineering interface
-* A premium digital product experience
-* A modern cloud-native portfolio
+* a modern frontend product
+* a premium engineering interface
+* a high-performance digital platform
+* a restrained cinematic experience
 
 The experience should communicate:
 
-> Precision engineering through cinematic interaction.
+> Smooth interaction through modern frontend engineering.
 
 Identity:
 
-> Dava Ardana — Elite Full-Stack Architect & Cloud Engineer.
+> Dava Ardana — Full-Stack Engineer & Cloud Architect.

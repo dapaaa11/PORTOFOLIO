@@ -6,35 +6,37 @@ This document explains the content management architecture used in the Dava Arda
 
 The CMS system is designed to:
 
-* Enable dynamic portfolio management
-* Allow content updates without code changes
-* Simplify project publishing workflows
-* Support scalable media management
-* Maintain clean frontend architecture
+* enable dynamic portfolio management
+* simplify content updates
+* support scalable project publishing
+* manage media efficiently
+* maintain clean frontend architecture
 
 The system prioritizes:
 
-* Simplicity
-* Scalability
-* Flexibility
-* Performance
-* Developer-friendly workflows
+* simplicity
+* scalability
+* maintainability
+* performance
+* developer-friendly workflows
 
 ---
 
 # CMS Platform
 
-## Selected CMS
+# Selected CMS
 
-The platform uses Sanity CMS as the primary headless content management system.
+The platform uses:
+
+* Sanity CMS
 
 Purpose:
 
-* Dynamic content management
-* Structured schema architecture
-* Real-time editing workflow
-* Scalable media handling
-* Frontend-friendly API delivery
+* dynamic content management
+* structured content architecture
+* scalable media handling
+* frontend-friendly API delivery
+* flexible publishing workflows
 
 ---
 
@@ -42,25 +44,24 @@ Purpose:
 
 Sanity CMS manages:
 
-* Featured projects
-* Hero content
-* Experience timeline
-* Skills & technologies
-* Social links
-* Showreel metadata
-* Portfolio descriptions
-* Technical storytelling content
+* featured projects
+* hero content
+* experience timeline
+* skills & technologies
+* social links
+* showreel metadata
+* portfolio descriptions
 
-The CMS acts as the central content source for the entire frontend application.
+The CMS acts as the central content source for the frontend application.
 
 ---
 
 # Content Architecture Overview
 
-```text id="e3mz8q"
+```text id="f5v8b4"
 Sanity CMS
         ↓
-Structured Content Collections
+Structured Collections
         ↓
 Frontend Fetch Layer
         ↓
@@ -75,87 +76,87 @@ Portfolio Website
 
 # 1. Projects Collection
 
-## Purpose
+# Purpose
 
-The Projects collection stores all portfolio project data displayed throughout the website.
+The Projects collection stores all portfolio project data displayed throughout the platform.
 
 This collection powers:
 
-* Featured project showcase
-* Portfolio grid
-* Project detail pages
-* Cinematic project cards
-* Technical case studies
+* featured projects
+* portfolio grid
+* project detail pages
+* project previews
+* technical case studies
 
 ---
 
-## Responsibilities
+# Responsibilities
 
 The Projects collection handles:
 
-* Project metadata
-* Thumbnail management
-* Showreel media
-* Technology stacks
-* External links
-* Featured project logic
+* project metadata
+* thumbnail management
+* project media
+* technology stacks
+* external links
+* featured project logic
 
 ---
 
-## Fields
+# Fields
 
-### title
+# title
 
 Purpose:
-Main project name displayed throughout the portfolio.
+Main project title displayed across the website.
 
 Example:
 
-```text id="x4tq2q"
-Cloud Architecture Dashboard
+```text id="av4d6r"
+Cloud Infrastructure Dashboard
 ```
 
 ---
 
-### slug
+# slug
 
 Purpose:
-SEO-friendly URL identifier.
+SEO-friendly project URL.
 
 Used for:
 
-* Dynamic routing
-* Project detail pages
+* dynamic routing
+* project detail pages
 
 Example:
 
-```text id="wz9nct"
-/projects/cloud-architecture-dashboard
+```text id="h4od8t"
+/projects/cloud-infrastructure-dashboard
 ```
 
 ---
 
-### thumbnail
+# thumbnail
 
 Purpose:
 Preview image displayed in:
 
-* Project cards
-* Portfolio grid
-* Social previews
+* project cards
+* portfolio grid
+* social previews
 
 Requirements:
 
-* Optimized WebP/AVIF
-* High contrast visuals
-* Cinematic composition
+* optimized WebP/AVIF
+* responsive sizing
+* clean composition
 
 ---
 
-### coverVideo
+# coverVideo
 
 Purpose:
-Optional cinematic showreel asset for project previews.
+Optional project preview media.
 
 Supported:
 
@@ -165,28 +166,28 @@ Supported:
 
 Used for:
 
-* Hero previews
-* Interactive project showcase
-* Motion-driven portfolio cards
+* project previews
+* media showcase
+* interactive project cards
 
 ---
 
-### description
+# description
 
 Purpose:
 Detailed explanation of the project.
 
 Should focus on:
 
-* Architecture
-* Problem solving
-* Scalability
-* Engineering decisions
-* Technical impact
+* architecture
+* scalability
+* technical decisions
+* problem solving
+* engineering impact
 
 ---
 
-### techStack
+# techStack
 
 Purpose:
 Displays technologies used in the project.
@@ -202,68 +203,68 @@ Examples:
 
 ---
 
-### githubUrl
+# githubUrl
 
 Purpose:
 External source code repository link.
 
 Used for:
 
-* Technical credibility
-* Engineering transparency
-* Recruiter review
+* technical credibility
+* engineering transparency
+* recruiter review
 
 ---
 
-### liveUrl
+# liveUrl
 
 Purpose:
 Live deployment preview.
 
 Used for:
 
-* Public showcase
-* Interactive demos
-* Product presentation
+* public showcase
+* interactive demos
+* production references
 
 ---
 
-### featured
+# featured
 
 Purpose:
 Controls whether the project appears in:
 
-* Homepage showcase
-* Featured sections
-* Cinematic hero references
+* homepage showcase
+* featured sections
+* highlighted layouts
 
 Type:
 Boolean
 
 ---
 
-### publishedAt
+# publishedAt
 
 Purpose:
 Controls publishing order and timeline sorting.
 
 Used for:
 
-* Chronological display
-* Recent project prioritization
+* chronological display
+* recent project prioritization
 
 ---
 
 # Project Workflow
 
-```text id="n4i4fo"
+```text id="q2sm3v"
 Create Project
         ↓
-Upload Thumbnail & Media
+Upload Media
         ↓
 Add Technical Information
         ↓
-Publish Content
+Publish
         ↓
 Automatically Rendered on Frontend
 ```
@@ -272,101 +273,101 @@ Automatically Rendered on Frontend
 
 # 2. Experience Collection
 
-## Purpose
+# Purpose
 
 Stores professional experience and engineering trajectory.
 
 This collection powers:
 
-* Editorial timeline
-* Experience section
-* Career growth visualization
+* experience timeline
+* career progression
+* technical specialization
 
 ---
 
-## Responsibilities
+# Responsibilities
 
 Handles:
 
-* Company information
-* Engineering roles
-* Timeline data
-* Technical responsibilities
+* company information
+* engineering roles
+* timeline data
+* technical responsibilities
 
 ---
 
-## Fields
+# Fields
 
-### company
+# company
 
 Purpose:
 Organization or company name.
 
 ---
 
-### role
+# role
 
 Purpose:
-Professional position title.
+Professional role title.
 
 Example:
 
-```text id="0tdhzy"
+```text id="pwr51m"
 Full-Stack Developer
 ```
 
 ---
 
-### year
+# year
 
 Purpose:
 Timeline positioning.
 
 Used for:
 
-* Editorial experience layout
-* Career progression
+* experience ordering
+* career progression
 
 ---
 
-### description
+# description
 
 Purpose:
 Explains:
 
-* Responsibilities
-* Technologies used
-* Engineering contributions
+* responsibilities
+* technologies used
+* engineering contributions
 
 ---
 
 # 3. Skills Collection
 
-## Purpose
+# Purpose
 
-Stores categorized engineering expertise and technology stack data.
+Stores categorized engineering expertise and technology stack information.
 
 Used for:
 
-* Skills section
-* Technical identity
-* Engineering specialization
+* skills section
+* technical identity
+* engineering specialization
 
 ---
 
-## Responsibilities
+# Responsibilities
 
 Handles:
 
-* Technology categorization
-* Stack visualization
-* Expertise grouping
+* technology categorization
+* stack organization
+* expertise grouping
 
 ---
 
-## Fields
+# Fields
 
-### category
+# category
 
 Purpose:
 Technology grouping.
@@ -381,14 +382,14 @@ Examples:
 
 ---
 
-### items
+# items
 
 Purpose:
-List of technologies under each category.
+List of technologies within each category.
 
 Example:
 
-```text id="0ckfiy"
+```text id="jup8nd"
 Next.js
 NestJS
 Laravel
@@ -400,110 +401,122 @@ Kubernetes
 
 # 4. Hero Collection
 
-## Purpose
+# Purpose
 
-Controls the cinematic hero section content.
+Controls hero section content and introductory messaging.
 
 This collection powers:
 
-* Hero headline
-* Subheadline
-* Background media
-* First impression messaging
+* hero headline
+* supporting text
+* background media
+* first impression messaging
 
 ---
 
-## Responsibilities
+# Responsibilities
 
 Handles:
 
-* Cinematic identity
-* Intro messaging
-* Hero media delivery
+* personal branding
+* technical introduction
+* hero media management
 
 ---
 
-## Fields
+# Fields
 
-### headline
+# headline
 
 Purpose:
-Primary branding statement.
+Primary hero statement.
 
 Example:
 
-> Architecting Digital Excellence
+```text id="s4k9fw"
+Building Modern Web Experiences
+```
 
 ---
 
-### subheadline
+# subheadline
 
 Purpose:
-Supporting engineering narrative.
+Supporting technical description.
 
 Example:
 
-> Building scalable digital systems with cinematic precision.
+```text id="gns6wo"
+Full-Stack Engineer focused on scalable frontend systems and cloud-native architecture.
+```
 
 ---
 
-### backgroundVideo
+# backgroundVideo
 
 Purpose:
-Hero background showreel asset.
+Optional hero background media.
 
 Requirements:
 
-* Optimized streaming source
-* Cinematic composition
-* Adaptive playback support
+* optimized playback
+* responsive loading
+* adaptive streaming support
 
 ---
 
 # Media Management
 
-## Purpose
+# Purpose
 
 Centralized media handling for:
 
-* Images
-* Videos
-* Posters
-* Thumbnails
+* images
+* videos
+* posters
+* thumbnails
 
 ---
 
-## Media Strategy
+# Media Strategy
 
-Images:
+# Images
 
-* WebP/AVIF optimized
-* Lazy loaded
+Use:
 
-Videos:
+* WebP/AVIF optimization
+* lazy loading
+* responsive sizing
 
-* HLS/DASH adaptive streaming
-* Google Stitch delivery
-* Poster preloading
+---
+
+# Videos
+
+Use:
+
+* adaptive streaming
+* deferred loading
+* optimized playback
+* poster preloading
 
 ---
 
 # Frontend Rendering Logic
 
-## Purpose
+# Purpose
 
 Automatically render CMS content dynamically into the frontend application.
 
 ---
 
-## Rendering Flow
+# Rendering Flow
 
-```text id="n8h6rx"
+```text id="cl27v2"
 Sanity CMS
         ↓
 GROQ Queries
         ↓
-Next.js Data Fetching
+Next.js Fetch Layer
         ↓
 React Components
         ↓
@@ -517,39 +530,41 @@ Dynamic Portfolio Rendering
 The frontend uses:
 
 * GROQ queries
-* Server-side fetching
-* Incremental static regeneration
-* Cached responses
+* server-side fetching
+* incremental static regeneration
+* cached responses
 
 Benefits:
 
-* Better SEO
-* Faster rendering
-* Improved performance
+* improved SEO
+* faster rendering
+* scalable content delivery
 
 ---
 
 # Performance Considerations
 
-## Optimization Strategy
+# Optimization Strategy
 
 The CMS system prioritizes:
 
-* Lightweight payloads
-* Optimized image delivery
-* Deferred media loading
-* Cached API responses
+* lightweight payloads
+* optimized image delivery
+* deferred media loading
+* cached API responses
 
 ---
 
 # Security Considerations
 
-## Security Features
+# Security Features
 
-* Restricted CMS access
-* Protected environment variables
-* Secure API tokens
-* Read-only frontend delivery
+Use:
+
+* restricted CMS access
+* protected environment variables
+* secure API tokens
+* read-only frontend delivery
 
 ---
 
@@ -557,16 +572,22 @@ The CMS system prioritizes:
 
 Projects should emphasize:
 
-* System architecture
-* Scalability
-* UI/UX craftsmanship
-* Cloud-native engineering
-* AI integrations
-* Technical storytelling
+* architecture
+* scalability
+* frontend craftsmanship
+* cloud-native systems
+* engineering quality
+* technical problem solving
+
+Avoid:
+
+* generic marketing language
+* exaggerated product claims
+* unnecessary cinematic wording
 
 The portfolio should communicate:
 
-> Engineering excellence through cinematic digital presentation.
+> Modern engineering through clean technical presentation.
 
 ---
 
@@ -574,12 +595,18 @@ The portfolio should communicate:
 
 The CMS architecture should feel:
 
-* Clean
-* Scalable
-* Modern
-* Developer-friendly
-* Production-ready
+* clean
+* scalable
+* modern
+* developer-friendly
+* production-ready
+
+The content workflow should:
+
+* simplify updates
+* reduce maintenance overhead
+* support scalable portfolio growth
 
 Identity:
 
-> Dava Ardana — Elite Full-Stack Architect & Cloud Engineer.
+> Dava Ardana — Full-Stack Engineer & Cloud Architect.

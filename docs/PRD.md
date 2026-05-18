@@ -1,4 +1,4 @@
-# Dava Ardana — Elite Full-Stack Portfolio
+# Dava Ardana — Full-Stack Engineer Portfolio
 
 # Product Requirements Documentation (PRD)
 
@@ -9,28 +9,37 @@ This document defines the product vision, user experience goals, technical direc
 The portfolio is designed to:
 
 * Showcase engineering expertise
-* Establish premium personal branding
-* Demonstrate modern frontend architecture
-* Present cinematic digital experiences
-* Reflect cloud-native engineering capabilities
+* Present modern frontend craftsmanship
+* Demonstrate scalable system thinking
+* Reflect cloud-native development practices
+* Build a strong technical personal brand
 
 The platform should communicate:
 
-> Technical excellence through cinematic software craftsmanship.
+> Modern engineering through clean digital craftsmanship.
 
 ---
 
 # Project Overview
 
-## Product Identity
+# Product Identity
 
-Dava Ardana Portfolio is a cinematic and modern portfolio landing page representing:
+Dava Ardana Portfolio is a modern and minimal portfolio platform representing:
 
-* Full-Stack Engineering expertise
+* Full-Stack engineering expertise
 * Cloud-native architecture knowledge
-* Modern frontend craftsmanship
-* AI & automation capabilities
-* Premium software engineering identity
+* Frontend engineering craftsmanship
+* Modern web performance practices
+* Technical product thinking
+
+The website should feel:
+
+* Technical
+* Modern
+* Structured
+* Minimal
+* High-performance
+* Professional
 
 ---
 
@@ -38,21 +47,20 @@ Dava Ardana Portfolio is a cinematic and modern portfolio landing page represent
 
 The platform combines:
 
-* Cinematic storytelling
-* Luxury engineering aesthetics
-* Interactive media experiences
-* High-performance frontend systems
-* Dynamic content management
-* Modern cloud infrastructure
+* Technical minimalism
+* Smooth interactions
+* Structured layouts
+* Dynamic project presentation
+* Modern frontend systems
+* Lightweight cinematic motion
 
-The final experience should feel:
+The experience should prioritize:
 
-* Elegant
-* Technical
-* Premium
-* Futuristic
-* Minimal
-* Architecturally refined
+* clarity
+* performance
+* readability
+* interaction quality
+* architectural consistency
 
 ---
 
@@ -62,14 +70,14 @@ The final experience should feel:
 
 Create a portfolio platform that feels like:
 
-* A luxury technology product
-* A cinematic engineering showcase
-* A modern software architecture experience
-* A premium digital identity system
+* A modern engineering product
+* A clean frontend system
+* A high-performance developer platform
+* A technical personal brand ecosystem
 
 The website should establish Dava Ardana as:
 
-> An elite Full-Stack Architect & Cloud Engineer.
+> A modern Full-Stack Engineer & Cloud Architect.
 
 ---
 
@@ -80,11 +88,11 @@ The website should establish Dava Ardana as:
 The platform targets:
 
 * Recruiters
-* Technology companies
-* Startup founders
+* Software companies
 * Engineering teams
+* Startup founders
+* Technical collaborators
 * Creative technology studios
-* Potential collaborators
 
 ---
 
@@ -92,11 +100,11 @@ The platform targets:
 
 Visitors should immediately perceive:
 
-* Strong technical capability
-* High attention to detail
-* Modern engineering standards
-* Premium UI craftsmanship
-* Advanced frontend knowledge
+* Strong engineering capability
+* Modern frontend knowledge
+* Attention to detail
+* Scalable thinking
+* Clean UI craftsmanship
 
 ---
 
@@ -109,40 +117,40 @@ The platform should highlight:
 * Frontend engineering
 * Backend architecture
 * Cloud systems
-* DevOps knowledge
+* API development
 * AI integrations
-* Streaming technologies
+* Modern tooling
 
 ---
 
-# 2. Build Strong Personal Branding
+# 2. Build Technical Personal Branding
 
 The portfolio should establish:
 
-* Professional identity
-* Engineering specialization
-* Premium digital presence
-* Technical credibility
+* Professional engineering identity
+* Technical specialization
+* Modern digital presence
+* Developer credibility
 
 ---
 
-# 3. Present Projects Professionally
+# 3. Present Projects Clearly
 
 Projects should feel:
 
-* Cinematic
-* Technical
 * Structured
-* High-quality
-* Scalable
+* Modern
+* Technical
+* Minimal
+* Well-engineered
 
 Each project should emphasize:
 
 * Architecture
 * Problem solving
 * Scalability
+* Performance
 * Technical decisions
-* Engineering impact
 
 ---
 
@@ -150,40 +158,46 @@ Each project should emphasize:
 
 The platform should demonstrate:
 
-* Advanced animations
-* High-performance rendering
+* Smooth interactions
 * Responsive architecture
-* Streaming optimization
+* Performance optimization
 * Modern React practices
+* Scalable frontend structure
 
 ---
 
-# 5. Create Memorable User Experience
+# 5. Create a Memorable User Experience
 
 The experience should feel:
 
-* Immersive
-* Cinematic
 * Smooth
-* Modern
 * Technical
-* Premium
+* Modern
+* Focused
+* Clean
+* Intentional
+
+Avoid:
+
+* excessive visual effects
+* over-cinematic presentation
+* distracting interactions
 
 ---
 
 # Brand Personality
 
-## Personality Traits
+# Personality Traits
 
 The platform identity should feel:
 
-* Elite
-* Professional
 * Technical
-* Architectural
-* Cinematic
+* Modern
 * Minimal
-* Futuristic
+* Architectural
+* Structured
+* Professional
+* Calm
 
 ---
 
@@ -191,44 +205,53 @@ The platform identity should feel:
 
 Users should feel:
 
-* Curiosity
-* Technical admiration
-* Visual immersion
-* Confidence in engineering quality
+* confidence
+* clarity
+* technical trust
+* engineering quality
+
+The experience should prioritize:
+
+* readability
+* focus
+* precision
+* interaction smoothness
 
 ---
 
 # Target Impression
 
-The website should resemble a combination of:
+The website should resemble:
 
-* Luxury technology platforms
-* Modern software company websites
-* Editorial product showcases
-* Cinematic digital experiences
+* Modern engineering platforms
+* Technical product websites
+* High-performance frontend systems
+* Premium developer tooling
 
-The platform should feel like:
+Inspired by:
 
-* A premium engineering product
-* A modern cloud-native platform
-* A cinematic software showcase
-* A high-end startup landing page
+* Linear
+* Vercel
+* Stripe
+* Raycast
+* Notion
 
 ---
 
 # Core Features
 
-# 1. Cinematic Hero Section
+# 1. Hero Section
 
 ## Purpose
 
-The Hero Section creates the first emotional impression of the platform.
+The Hero Section creates the first impression of the platform.
 
 It establishes:
 
-* Technical identity
-* Cinematic atmosphere
-* Premium engineering branding
+* technical identity
+* personal branding
+* engineering focus
+* visual tone
 
 ---
 
@@ -236,23 +259,28 @@ It establishes:
 
 The Hero includes:
 
-* Fullscreen cinematic background video
-* Animated typography reveal
-* Smooth scroll transitions
-* Layered visual overlays
-* Editorial typography composition
+* minimal background motion
+* structured typography
+* smooth reveal animation
+* responsive layout
+* subtle interaction feedback
 
 ---
 
-## Hero Video System
+## Hero Content Direction
 
-The hero background video should:
+Hero messaging should feel:
 
-* Autoplay silently
-* Loop seamlessly
-* Use adaptive streaming
-* Load progressively
-* Maintain smooth playback
+* direct
+* human
+* technical
+* concise
+
+Avoid:
+
+* generic AI-generated slogans
+* dramatic marketing phrases
+* excessive luxury wording
 
 ---
 
@@ -262,10 +290,10 @@ The hero background video should:
 
 The Featured Projects section showcases:
 
-* Technical expertise
-* Engineering quality
-* System architecture
-* Creative problem solving
+* engineering capability
+* frontend craftsmanship
+* system architecture
+* technical problem solving
 
 ---
 
@@ -273,11 +301,11 @@ The Featured Projects section showcases:
 
 The section includes:
 
-* Dynamic project rendering
-* CMS-driven content
-* Cinematic project cards
-* Interactive hover states
-* Responsive masonry layouts
+* CMS-driven projects
+* responsive project layouts
+* minimal hover interactions
+* structured project cards
+* scalable rendering system
 
 ---
 
@@ -285,12 +313,12 @@ The section includes:
 
 Projects should focus on:
 
-* Architecture
-* Scalability
-* Cloud systems
-* AI integrations
-* UI/UX engineering
-* Performance optimization
+* architecture
+* scalability
+* engineering quality
+* UI systems
+* cloud-native solutions
+* performance optimization
 
 ---
 
@@ -300,26 +328,25 @@ Projects should focus on:
 
 The Tech Stack section communicates:
 
-* Engineering specialization
-* Technical breadth
-* Modern tooling expertise
+* engineering specialization
+* modern tooling familiarity
+* technical versatility
 
 ---
 
-## Featured Technologies
+# Featured Technologies
 
-### Frontend
+## Frontend
 
 * Next.js
 * React
 * TypeScript
 * TailwindCSS
 * Framer Motion
-* GSAP
 
 ---
 
-### Backend
+## Backend
 
 * NestJS
 * Laravel
@@ -329,34 +356,34 @@ The Tech Stack section communicates:
 
 ---
 
-### Cloud & DevOps
+## Cloud & DevOps
 
 * Google Cloud Platform
 * Docker
 * Kubernetes
-* Firebase
 * Cloud Run
+* Firebase
 
 ---
 
-### AI & Automation
+## AI & Automation
 
 * OpenAI API
 * Claude API
-* AI Agent Integration
+* AI Workflow Integration
 * Prompt Engineering
 
 ---
 
-# 4. Interactive Showreel Section
+# 4. Showreel Section
 
 ## Purpose
 
 The Showreel section demonstrates:
 
-* Media engineering
-* Streaming optimization
-* Cinematic presentation
+* frontend interaction quality
+* streaming optimization
+* technical presentation
 
 ---
 
@@ -364,11 +391,11 @@ The Showreel section demonstrates:
 
 The system includes:
 
-* Google Stitch integration
-* Adaptive bitrate streaming
+* adaptive streaming
 * HLS/DASH playback
-* Minimal luxury player UI
-* Smooth playback transitions
+* optimized media delivery
+* minimal player interface
+* responsive playback system
 
 ---
 
@@ -376,10 +403,10 @@ The system includes:
 
 The playback system should:
 
-* Minimize buffering
-* Support multiple resolutions
-* Maintain cinematic quality
-* Optimize mobile playback
+* minimize buffering
+* optimize loading speed
+* maintain smooth playback
+* support adaptive bitrate delivery
 
 ---
 
@@ -389,9 +416,9 @@ The playback system should:
 
 The Experience section communicates:
 
-* Career growth
-* Engineering trajectory
-* Professional focus
+* career trajectory
+* engineering growth
+* technical specialization
 
 ---
 
@@ -399,10 +426,10 @@ The Experience section communicates:
 
 The section includes:
 
-* Editorial timeline layout
-* Minimal typography
-* Smooth reveal animations
-* Technical specialization highlights
+* clean timeline layouts
+* minimal typography
+* structured content hierarchy
+* smooth section transitions
 
 ---
 
@@ -412,10 +439,10 @@ The section includes:
 
 The platform uses a dynamic CMS system to:
 
-* Add projects without code changes
-* Update content easily
-* Manage media assets
-* Scale portfolio content
+* manage projects dynamically
+* update content without code changes
+* scale portfolio content
+* manage media assets efficiently
 
 ---
 
@@ -431,12 +458,12 @@ Selected CMS:
 
 The CMS manages:
 
-* Projects
-* Hero content
-* Skills
-* Experience
-* Social links
-* Media assets
+* projects
+* hero content
+* skills
+* experience
+* media assets
+* social links
 
 ---
 
@@ -449,9 +476,8 @@ The CMS manages:
 | Next.js       | Frontend framework |
 | React         | UI rendering       |
 | TypeScript    | Type safety        |
-| TailwindCSS   | Styling            |
-| Framer Motion | UI animation       |
-| GSAP          | Cinematic motion   |
+| TailwindCSS   | Styling system     |
+| Framer Motion | Motion system      |
 
 ---
 
@@ -469,7 +495,7 @@ The CMS manages:
 | ------------------------- | -------------------- |
 | Google Video Stitcher API | Streaming management |
 | Google Cloud Storage      | Media storage        |
-| Google Transcoder API     | Video encoding       |
+| Google Transcoder API     | Video processing     |
 | Shaka Player              | Adaptive playback    |
 
 ---
@@ -487,14 +513,16 @@ The CMS manages:
 
 # Performance Philosophy
 
+Performance is a core product feature.
+
 The platform must prioritize:
 
-* Smoothness
-* Responsiveness
-* Fast loading
-* Streaming stability
+* responsiveness
+* rendering speed
+* smooth scrolling
+* optimized media delivery
 
-Visual quality should never compromise performance.
+Visual polish should never reduce usability.
 
 ---
 
@@ -515,10 +543,10 @@ Visual quality should never compromise performance.
 
 Use:
 
-* Dynamic imports
-* Route-based splitting
-* Lazy loading
-* Optimized rendering
+* dynamic imports
+* lazy loading
+* route splitting
+* optimized rendering
 
 ---
 
@@ -526,9 +554,9 @@ Use:
 
 Use:
 
-* Adaptive bitrate streaming
-* AVIF/WebP images
-* Deferred video loading
+* adaptive bitrate streaming
+* optimized image formats
+* deferred loading
 * CDN caching
 
 ---
@@ -537,14 +565,15 @@ Use:
 
 Prefer:
 
-* GPU transforms
-* Opacity animation
-* Lightweight motion
+* transform animations
+* opacity transitions
+* GPU acceleration
 
 Avoid:
 
-* Heavy repaint effects
-* CPU-intensive animation
+* heavy repaint effects
+* CPU-intensive motion
+* excessive visual layering
 
 ---
 
@@ -554,10 +583,10 @@ Avoid:
 
 The mobile experience should:
 
-* Reduce animation intensity
-* Optimize streaming quality
-* Maintain readability
-* Improve touch interaction
+* prioritize readability
+* reduce motion intensity
+* optimize media loading
+* maintain smooth interaction
 
 ---
 
@@ -565,9 +594,9 @@ The mobile experience should:
 
 The desktop experience should:
 
-* Deliver full cinematic motion
-* Use high-resolution streaming
-* Showcase advanced interactions
+* maintain spacious layouts
+* support advanced motion systems
+* showcase structured composition
 
 ---
 
@@ -575,10 +604,10 @@ The desktop experience should:
 
 The platform should support:
 
-* Keyboard navigation
-* Reduced motion mode
-* Semantic HTML
-* WCAG AA contrast compliance
+* keyboard navigation
+* semantic HTML
+* reduced motion mode
+* accessible contrast ratios
 
 ---
 
@@ -586,15 +615,15 @@ The platform should support:
 
 The final platform should feel like:
 
-* A cinematic engineering showcase
-* A luxury software platform
-* A modern cloud-native experience
-* A premium developer identity system
+* a modern engineering product
+* a high-performance frontend system
+* a clean technical portfolio
+* a scalable digital identity platform
 
 The portfolio should communicate:
 
-> Engineering excellence through cinematic digital craftsmanship.
+> Technical excellence through modern web craftsmanship.
 
 Identity:
 
-> Dava Ardana — Elite Full-Stack Architect & Cloud Engineer.
+> Dava Ardana — Full-Stack Engineer & Cloud Architect.
