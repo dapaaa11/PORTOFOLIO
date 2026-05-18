@@ -4,6 +4,7 @@ import { Section } from "@/components/layout/section";
 import { SectionTitle } from "@/components/ui/section-title";
 import { ProjectCard } from "@/components/ui/project-card";
 import { ExperienceItem } from "@/components/ui/experience-item";
+import { SkillGroup } from "@/components/ui/skill-group";
 
 export default function HomePage() {
   return (
@@ -84,6 +85,48 @@ export default function HomePage() {
             role="Frontend Developer"
             company="Personal Product Development"
             description="Focused on building responsive interfaces, reusable design systems, and performant React applications."
+          />
+        </div>
+      </Section>
+
+      {/* Skills Section */}
+      <Section id="skills">
+        <SectionTitle
+          eyebrow="Tech Stack"
+          title="Technologies & Tools"
+          description="Focused on modern frontend systems, scalable backend architecture, and cloud-native development workflows."
+        />
+
+        <div className="mt-16 grid gap-6 md:grid-cols-2">
+          <SkillGroup
+            title="Frontend"
+            items={[
+              "Next.js",
+              "React",
+              "TypeScript",
+              "TailwindCSS",
+              "Framer Motion",
+            ]}
+          />
+
+          <SkillGroup
+            title="Backend"
+            items={["NestJS", "Laravel", "Node.js", "PostgreSQL", "REST API"]}
+          />
+
+          <SkillGroup
+            title="Cloud & DevOps"
+            items={["Google Cloud", "Docker", "Cloud Run", "Firebase", "CI/CD"]}
+          />
+
+          <SkillGroup
+            title="AI & Automation"
+            items={[
+              "OpenAI API",
+              "Claude API",
+              "Prompt Engineering",
+              "Workflow Automation",
+            ]}
           />
         </div>
       </Section>
