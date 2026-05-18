@@ -3,7 +3,7 @@ import { FadeIn } from "@/components/motion/fade-in";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-black pt-16 text-white">
       <Container className="flex min-h-screen items-center">
         <div className="max-w-3xl">
           <FadeIn>
