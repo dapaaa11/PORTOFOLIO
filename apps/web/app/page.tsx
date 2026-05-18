@@ -1,9 +1,13 @@
 import { Container } from "@/components/layout/container";
 import { FadeIn } from "@/components/motion/fade-in";
+import { Section } from "@/components/layout/section";
+import { SectionTitle } from "@/components/ui/section-title";
 
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-black pt-16 text-white">
+      
+      {/* HERO SECTION */}
       <Container className="flex min-h-screen items-center">
         <div className="max-w-3xl">
           <FadeIn>
@@ -35,6 +39,15 @@ export default function HomePage() {
           </FadeIn>
         </div>
       </Container>
+
+      {/* PROJECTS SECTION */}
+      <Section id="projects">
+        <SectionTitle
+          eyebrow="Featured Work"
+          title="Selected Projects"
+          description="A collection of frontend systems, cloud-native applications, and modern digital products focused on scalability and user experience."
+        />
+      </Section>
     </main>
   );
 }
