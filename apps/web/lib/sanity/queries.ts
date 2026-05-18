@@ -39,7 +39,15 @@ export const homePageQuery = `{
     "stack": techStack,
     "thumbnail": {
       "url": thumbnail.asset->url,
-      "alt": thumbnail.alt
+      "alt": thumbnail.alt,
+      "metadata": thumbnail.asset->metadata {
+        lqip,
+        dimensions {
+          width,
+          height,
+          aspectRatio
+        }
+      }
     },
     "coverVideo": {
       "hlsUrl": coverVideo.hlsUrl,
@@ -68,7 +76,15 @@ export const projectBySlugQuery = `*[_type == "project" && slug.current == $slug
   "slug": slug.current,
   "thumbnail": {
     "url": thumbnail.asset->url,
-    "alt": thumbnail.alt
+    "alt": thumbnail.alt,
+    "metadata": thumbnail.asset->metadata {
+      lqip,
+      dimensions {
+        width,
+        height,
+        aspectRatio
+      }
+    }
   },
   "coverVideo": {
     "hlsUrl": coverVideo.hlsUrl,

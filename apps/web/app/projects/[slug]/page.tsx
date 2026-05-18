@@ -118,6 +118,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <ProjectMediaShowcase
             thumbnailUrl={project.thumbnail?.url}
             thumbnailAlt={project.thumbnail?.alt || project.title}
+            thumbnailMetadata={project.thumbnail?.metadata}
             coverVideo={project.coverVideo}
           />
         </FadeIn>

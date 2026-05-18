@@ -2,10 +2,19 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { OptimizedImage } from "./optimized-image";
 
 interface ProjectMediaShowcaseProps {
   thumbnailUrl?: string;
   thumbnailAlt?: string;
+  thumbnailMetadata?: {
+    lqip?: string;
+    dimensions?: {
+      width: number;
+      height: number;
+      aspectRatio: number;
+    };
+  };
   coverVideo?: {
     hlsUrl?: string;
     dashUrl?: string;
@@ -17,6 +26,7 @@ interface ProjectMediaShowcaseProps {
 export function ProjectMediaShowcase({
   thumbnailUrl,
   thumbnailAlt = "Project Preview",
+  thumbnailMetadata,
   coverVideo,
 }: ProjectMediaShowcaseProps) {
   const [isPlaying, setIsPlaying] = useState(true);
@@ -67,9 +77,16 @@ export function ProjectMediaShowcase({
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="absolute inset-0 z-10 w-full h-full bg-cover bg-center"
-            style={{ backgroundImage: `url(${posterUrl})` }}
+            className="absolute inset-0 z-10 w-full h-full"
           >
+            <OptimizedImage
+              src={posterUrl}
+              alt={thumbnailAlt}
+              metadata={thumbnailMetadata}
+              fill
+              sizes="(max-width: 1024px) 100vw, 80vw"
+              priority
+            />
             {/* Dark overlay to match minimalist technical design */}
             <div className="absolute inset-0 bg-black/20" />
             
@@ -151,10 +168,17 @@ export function ProjectMediaShowcase({
           <motion.div
             whileHover={{ scale: 1.01 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full h-full bg-cover bg-center"
-            style={{ backgroundImage: `url(${posterUrl})` }}
-            aria-label={thumbnailAlt}
-          />
+            className="w-full h-full"
+          >
+            <OptimizedImage
+              src={posterUrl}
+              alt={thumbnailAlt}
+              metadata={thumbnailMetadata}
+              fill
+              sizes="(max-width: 1024px) 100vw, 80vw"
+              priority
+            />
+          </motion.div>
         )
       )}
     </motion.div>

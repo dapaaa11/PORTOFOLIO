@@ -72,6 +72,14 @@ const fallbackContent: HomePageContent = {
       thumbnail: {
         url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&h=800&q=80",
         alt: "Cloud Infrastructure Dashboard Preview",
+        metadata: {
+          lqip: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDE2IDEwIj48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iMTAiIGZpbGw9IiMxYTFhMWEiLz48L3N2Zz4=",
+          dimensions: {
+            width: 1200,
+            height: 800,
+            aspectRatio: 1.5,
+          },
+        },
       },
       coverVideo: {
         mp4Url: "https://assets.mixkit.co/videos/preview/mixkit-data-processors-working-on-computers-in-a-server-room-41764-large.mp4",
@@ -89,6 +97,14 @@ const fallbackContent: HomePageContent = {
       thumbnail: {
         url: "https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=1200&h=800&q=80",
         alt: "AI Workflow Platform Preview",
+        metadata: {
+          lqip: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDE2IDEwIj48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iMTAiIGZpbGw9IiMxYTFhMWEiLz48L3N2Zz4=",
+          dimensions: {
+            width: 1200,
+            height: 800,
+            aspectRatio: 1.5,
+          },
+        },
       },
       coverVideo: {
         mp4Url: "https://assets.mixkit.co/videos/preview/mixkit-man-working-on-a-computer-with-futuristic-graphics-41761-large.mp4",

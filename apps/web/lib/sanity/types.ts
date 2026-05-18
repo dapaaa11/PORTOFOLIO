@@ -12,6 +12,14 @@ export interface ProjectContent {
   thumbnail?: {
     url?: string;
     alt?: string;
+    metadata?: {
+      lqip?: string;
+      dimensions?: {
+        width: number;
+        height: number;
+        aspectRatio: number;
+      };
+    };
   };
   coverVideo?: {
     hlsUrl?: string;
