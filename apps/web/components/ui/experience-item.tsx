@@ -12,14 +12,14 @@ export function ExperienceItem({
   description,
 }: ExperienceItemProps) {
   return (
-    <div className="grid gap-6 border-t border-white/10 py-8 md:grid-cols-[120px_1fr]">
+    <div className="grid gap-4 border-t border-white/10 py-7 sm:gap-6 sm:py-8 md:grid-cols-[140px_1fr] lg:grid-cols-[180px_1fr]">
       <div>
         <p className="text-sm text-zinc-500">{year}</p>
       </div>
 
       <div>
         <h3
-          className="text-xl font-semibold tracking-tight text-white"
+          className="text-lg font-semibold tracking-tight text-white sm:text-xl"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           {role}
@@ -29,7 +29,7 @@ export function ExperienceItem({
           {company}
         </p>
 
-        <p className="mt-4 max-w-2xl leading-relaxed text-zinc-400">
+        <p className="mt-4 max-w-2xl text-sm leading-relaxed text-zinc-400 sm:text-base">
           {description}
         </p>
       </div>

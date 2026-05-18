@@ -26,7 +26,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-black text-white font-sans antialiased">
+      <body
+        className={`${inter.variable} ${manrope.variable} bg-black font-sans text-white antialiased`}
+      >
         <Navbar />
         {children}
         <Footer />

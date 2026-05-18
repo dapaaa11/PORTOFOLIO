@@ -20,7 +20,7 @@ export function ProjectCard({
         duration: 0.3,
         ease: [0.16, 1, 0.3, 1],
       }}
-      className="group rounded-3xl border border-white/10 bg-white/[0.02] p-8 transition-colors duration-300 hover:border-white/20"
+      className="group rounded-lg border border-white/10 bg-white/[0.02] p-6 transition-colors duration-300 hover:border-white/20 sm:p-8"
     >
       <div className="flex flex-wrap gap-2">
         {stack.map((item) => (
@@ -34,13 +34,13 @@ export function ProjectCard({
       </div>
 
       <h3
-        className="mt-8 text-2xl font-semibold tracking-tight text-white"
+        className="mt-8 text-xl font-semibold leading-tight tracking-tight text-white sm:text-2xl"
         style={{ fontFamily: "var(--font-heading)" }}
       >
         {title}
       </h3>
 
-      <p className="mt-4 leading-relaxed text-zinc-400">
+      <p className="mt-4 text-sm leading-relaxed text-zinc-400 sm:text-base">
         {description}
       </p>
     </motion.article>

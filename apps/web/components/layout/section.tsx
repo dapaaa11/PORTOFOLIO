@@ -15,7 +15,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={`py-24 md:py-32 ${className}`}
+      className={`py-20 sm:py-24 lg:py-32 ${className}`}
     >
       <Container>{children}</Container>
     </section>
