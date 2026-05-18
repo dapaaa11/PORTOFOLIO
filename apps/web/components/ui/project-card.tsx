@@ -9,6 +9,7 @@ interface ProjectCardProps {
   description: string;
   stack: string[];
   slug: string;
+  status?: string;
 }
 
 export function ProjectCard({
@@ -16,6 +17,7 @@ export function ProjectCard({
   description,
   stack,
   slug,
+  status,
 }: ProjectCardProps) {
   const [coords, setCoords] = useState({ x: 0, y: 0 });
 
@@ -48,15 +50,26 @@ export function ProjectCard({
 
         {/* Content wrapper to stack above the background glow */}
         <div className="relative z-10">
-          <div className="flex flex-wrap gap-1.5">
-            {stack.map((item) => (
-              <span
-                key={item}
-                className="rounded-md border border-white/5 bg-white/[0.01] px-2.5 py-1 text-xs text-zinc-400 group-hover:text-zinc-300 group-hover:border-white/10 transition-all duration-500"
-              >
-                {item}
-              </span>
-            ))}
+          <div className="flex flex-wrap gap-1.5 items-center justify-between">
+            {/* Stack Tags */}
+            <div className="flex flex-wrap gap-1.5">
+              {stack.map((item) => (
+                <span
+                  key={item}
+                  className="rounded-md border border-white/5 bg-white/[0.01] px-2.5 py-1 text-xs text-zinc-400 group-hover:text-zinc-300 group-hover:border-white/10 transition-all duration-500"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+
+            {/* Development Status Badge */}
+            {status && (
+              <div className="flex items-center gap-1.5 rounded-md border border-white/5 bg-white/[0.005] px-2.5 py-1 text-[9px] uppercase font-mono tracking-widest text-zinc-500 transition-all duration-500 group-hover:text-zinc-400 group-hover:border-white/10">
+                <span className={`h-1 w-1 rounded-full animate-pulse ${status.toLowerCase().includes("alpha") ? "bg-amber-500" : "bg-emerald-500"}`} />
+                <span>{status}</span>
+              </div>
+            )}
           </div>
 
           <h3

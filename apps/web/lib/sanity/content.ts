@@ -66,8 +66,9 @@ const fallbackContent: HomePageContent = {
     {
       title: "Cloud Infrastructure Dashboard",
       slug: "cloud-infrastructure-dashboard",
+      status: "Ongoing - Active Beta",
       description:
-        "A scalable monitoring platform built for cloud-native infrastructure management and operational analytics. It provides real-time telemetry, automated alerting, and visual orchestration for multi-cloud deployments.",
+        "An advanced multi-cloud telemetry and orchestration dashboard engineered for high-throughput stream processing and operational visibility. The platform ingests over 10 million metrics per second across global edge networks, applying real-time analytical parsing and structural redis caching. It resolves traditional data-pooling bottlenecks by utilizing custom decoupled worker pools and thread-safe connection queues, delivering instant visual system state updates to client dashboards with sub-80ms rendering latencies.",
       stack: ["Next.js", "NestJS", "PostgreSQL", "Google Cloud", "Docker"],
       thumbnail: {
         url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&h=800&q=80",
@@ -91,8 +92,9 @@ const fallbackContent: HomePageContent = {
     {
       title: "AI Workflow Platform",
       slug: "ai-workflow-platform",
+      status: "Ongoing - Active Alpha",
       description:
-        "Modern AI workflow system integrating automation pipelines, prompt orchestration, and scalable API architecture. Supports autonomous agent swarms, vector databases, and high-throughput LLM semantic processing.",
+        "A scalable, persistent Visual DAG Orchestrator engineered to run, monitor, and scale complex multi-agent execution graphs. Backed by an elastic serverless state machine, it integrates persistent vector state lookup registries to aggressively skip repeat LLM calls, achieving a massive 45% reduction in overall prompt token consumption. It employs an under-the-hood self-healing logic layer that continuously monitors agent execution threads, intercepting recursive loop overflows and optimizing nested execution tree latencies.",
       stack: ["React", "Laravel", "OpenAI", "Pinecone", "Docker"],
       thumbnail: {
         url: "https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=1200&h=800&q=80",

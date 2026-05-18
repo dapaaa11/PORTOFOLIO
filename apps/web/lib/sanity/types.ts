@@ -8,6 +8,7 @@ export interface ProjectContent {
   title: string;
   slug: string;
   description: string;
+  status?: string; // e.g. "Ongoing - Active Development" or "Completed - Production Ready"
   stack: string[];
   thumbnail?: {
     url?: string;

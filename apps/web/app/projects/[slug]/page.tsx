@@ -323,10 +323,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   >
                     Specifications
                   </h3>
-                  <div className="flex items-center gap-1.5">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    <span className="text-[10px] uppercase font-mono tracking-widest text-zinc-500">PRODUCTION READINESS</span>
-                  </div>
+                  {project.status && (
+                    <div className="flex items-center gap-1.5">
+                      <span className={`h-1.5 w-1.5 rounded-full animate-pulse ${project.status.toLowerCase().includes("alpha") ? "bg-amber-500" : "bg-emerald-500"}`} />
+                      <span className="text-[10px] uppercase font-mono tracking-widest text-zinc-400 font-medium">
+                        {project.status}
+                      </span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Tech Stack List */}
@@ -354,6 +358,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     <span className="text-zinc-500">Role</span>
                     <span className="text-zinc-300 font-medium">Full-Stack Engineer</span>
                   </div>
+                  {project.status && (
+                    <div className="flex justify-between items-center border-b border-white/[0.02] pb-2">
+                      <span className="text-zinc-500">Status</span>
+                      <span className="text-zinc-300 font-medium">{project.status}</span>
+                    </div>
+                  )}
                   <div className="flex justify-between items-center">
                     <span className="text-zinc-500">Infrastructure</span>
                     <span className="text-zinc-300 font-medium">Edge Optimized</span>

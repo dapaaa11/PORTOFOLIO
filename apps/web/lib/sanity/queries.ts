@@ -36,6 +36,7 @@ export const homePageQuery = `{
     title,
     "slug": slug.current,
     description,
+    status,
     "stack": techStack,
     "thumbnail": {
       "url": thumbnail.asset->url,
@@ -93,6 +94,7 @@ export const projectBySlugQuery = `*[_type == "project" && slug.current == $slug
     "posterUrl": coverVideo.poster.asset->url
   },
   description,
+  status,
   "stack": techStack,
   githubUrl,
   liveUrl,
