@@ -20,28 +20,28 @@ interface SanityHomePageResponse
 const fallbackContent: HomePageContent = {
   hero: {
     eyebrow: "Full-Stack Engineer & Cloud Architect",
-    headline: "Building scalable\ndigital products\nwith modern\nweb architecture.",
+    headline: "Building digital\nsystems that are\nfast, clean, and feel\nnatural to use.",
     subheadline:
-      "I design and develop modern digital systems focused on performance, scalability, and clean user experience.",
+      "Focused on clean code, reliable systems, and the precise details that make digital interactions feel comfortable.",
   },
   sections: {
     projects: {
       eyebrow: "Featured Work",
       title: "Selected Projects",
       description:
-        "A collection of frontend systems, cloud-native applications, and modern digital products focused on scalability and user experience.",
+        "A collection of systems, interfaces, and products built with a focus on speed, structure, and clean execution.",
     },
     experience: {
       eyebrow: "Experience",
       title: "Engineering Journey",
       description:
-        "Focused on building scalable systems, modern frontend experiences, and cloud-native applications.",
+        "A timeline of my professional work, focusing on clean engineering, system performance, and thoughtful product design.",
     },
     skills: {
       eyebrow: "Tech Stack",
       title: "Technologies & Tools",
       description:
-        "Focused on modern frontend systems, scalable backend architecture, and cloud-native development workflows.",
+        "A selection of technologies and methodologies I use to bring ideas to life, from the interface to the cloud.",
     },
     contact: {
       eyebrow: "Contact",
@@ -122,7 +122,7 @@ const fallbackContent: HomePageContent = {
       role: "Full-Stack Developer",
       company: "Freelance & Independent Projects",
       description:
-        "Developing modern web applications using scalable frontend architecture, backend systems, and cloud-native workflows.",
+        "Developing digital applications using clean frontend architecture, reliable backend systems, and automated cloud workflows.",
     },
     {
       year: "2023 - 2024",

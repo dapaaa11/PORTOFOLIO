@@ -51,7 +51,7 @@ export default function RootLayout({
       "Docker",
       "System Architecture"
     ],
-    "description": "Full-Stack Engineer & Cloud Architect building scalable, modern digital systems with clean craftsmanship."
+    "description": "Full-Stack Engineer & Cloud Architect focused on fast, clean digital systems and thoughtful user experiences."
   };
 
   return (

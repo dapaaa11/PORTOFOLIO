@@ -13,24 +13,24 @@ export const translationsEn = {
   },
   hero: {
     eyebrow: "Full-Stack Engineer & Cloud Architect",
-    headline: "Building scalable\ndigital products\nwith modern\nweb architecture.",
-    subheadline: "I design and develop modern digital systems focused on performance, scalability, and clean user experience.",
+    headline: "Building digital\nsystems that are\nfast, clean, and feel\nnatural to use.",
+    subheadline: "Focused on clean code, reliable systems, and the precise details that make digital interactions feel comfortable.",
   },
   sections: {
     projects: {
       eyebrow: "Featured Work",
       title: "Selected Projects",
-      description: "A collection of frontend systems, cloud-native applications, and modern digital products focused on scalability and user experience.",
+      description: "A collection of systems, interfaces, and products built with a focus on speed, structure, and clean execution.",
     },
     experience: {
       eyebrow: "Experience",
       title: "Engineering Journey",
-      description: "Focused on building scalable systems, modern frontend experiences, and cloud-native applications.",
+      description: "A timeline of my professional work, focusing on clean engineering, system performance, and thoughtful product design.",
     },
     skills: {
       eyebrow: "Tech Stack",
       title: "Technologies & Tools",
-      description: "Focused on modern frontend systems, scalable backend architecture, and cloud-native development workflows.",
+      description: "A selection of technologies and methodologies I use to bring ideas to life, from the interface to the cloud.",
     },
     contact: {
       eyebrow: "Contact",
@@ -61,7 +61,7 @@ export const translationsEn = {
       year: "2024 - Present",
       role: "Full-Stack Developer",
       company: "Freelance & Independent Projects",
-      description: "Developing modern web applications using scalable frontend architecture, backend systems, and cloud-native workflows.",
+      description: "Developing digital applications using clean frontend architecture, reliable backend systems, and automated cloud workflows.",
     },
     {
       year: "2023 - 2024",
@@ -107,24 +107,24 @@ export const translationsId = {
   },
   hero: {
     eyebrow: "Full-Stack Engineer & Cloud Architect",
-    headline: "Membangun produk\ndigital terukur\ndengan arsitektur\nweb modern.",
-    subheadline: "Saya merancang dan mengembangkan sistem digital modern yang berfokus pada performa, skalabilitas, dan pengalaman pengguna yang bersih.",
+    headline: "Membangun sistem\ndigital yang cepat,\nbersih, dan terasa\nnatural digunakan.",
+    subheadline: "Berfokus pada kode yang rapi, sistem yang andal, dan detail presisi yang membuat interaksi digital terasa nyaman.",
   },
   sections: {
     projects: {
       eyebrow: "Karya Unggulan",
       title: "Proyek Pilihan",
-      description: "Kumpulan sistem frontend, aplikasi cloud-native, dan produk digital modern yang berfokus pada skalabilitas dan pengalaman pengguna.",
+      description: "Kumpulan sistem, antarmuka, dan produk yang dibangun dengan fokus pada kecepatan, struktur, dan eksekusi yang bersih.",
     },
     experience: {
       eyebrow: "Pengalaman",
       title: "Perjalanan Karir",
-      description: "Berfokus pada pembangunan sistem terukur, pengalaman frontend modern, dan aplikasi cloud-native.",
+      description: "Perjalanan profesional saya, berfokus pada rekayasa kode yang bersih, performa sistem, dan desain produk yang matang.",
     },
     skills: {
       eyebrow: "Keahlian",
       title: "Teknologi & Alat",
-      description: "Berfokus pada sistem frontend modern, arsitektur backend yang terukur, dan alur kerja pengembangan cloud-native.",
+      description: "Pilihan teknologi dan metodologi yang saya gunakan untuk mewujudkan ide, dari desain antarmuka hingga komputasi awan.",
     },
     contact: {
       eyebrow: "Kontak",
@@ -155,7 +155,7 @@ export const translationsId = {
       year: "2024 - Sekarang",
       role: "Full-Stack Developer",
       company: "Proyek Lepas & Independen",
-      description: "Mengembangkan aplikasi web modern menggunakan arsitektur frontend yang terukur, sistem backend, dan alur kerja cloud-native.",
+      description: "Mengembangkan aplikasi digital menggunakan arsitektur frontend yang bersih, sistem backend yang andal, dan alur kerja komputasi awan.",
     },
     {
       year: "2023 - 2024",

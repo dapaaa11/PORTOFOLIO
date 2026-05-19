@@ -13,7 +13,7 @@ interface ConstructMetadataProps {
 
 export function constructMetadata({
   title = "Dava Ardana",
-  description = "Full-Stack Engineer & Cloud Architect building scalable, modern digital systems with clean craftsmanship.",
+  description = "Full-Stack Engineer & Cloud Architect focused on fast, clean digital systems and thoughtful user experiences.",
   image = "/og-image.png",
   noIndex = false,
   canonical,

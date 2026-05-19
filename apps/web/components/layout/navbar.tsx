@@ -257,8 +257,8 @@ export function Navbar() {
                 </div>
 
                 <p className="max-w-sm text-sm leading-relaxed text-zinc-500">
-                  Full-Stack Engineer & Cloud Architect focused on scalable,
-                  high-performance web systems.
+                  Full-Stack Engineer & Cloud Architect focused on fast, clean
+                  digital systems and thoughtful user experiences.
                 </p>
                 <button
                   ref={closeButtonRef}
