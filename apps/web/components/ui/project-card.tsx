@@ -76,10 +76,11 @@ export function ProjectCard({
         ref={ref}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        initial={shouldReduceMotion ? false : fadeUp.initial}
+        initial={shouldReduceMotion ? fadeUp.animate : fadeUp.initial}
+        animate={shouldReduceMotion ? fadeUp.animate : undefined}
         whileInView={shouldReduceMotion ? undefined : fadeUp.animate}
         viewport={{ once: true, margin: "-80px" }}
-        transition={shouldReduceMotion ? undefined : fadeUp.transition}
+        transition={shouldReduceMotion ? { duration: 0 } : fadeUp.transition}
         style={
           canTilt && !shouldReduceMotion
             ? {

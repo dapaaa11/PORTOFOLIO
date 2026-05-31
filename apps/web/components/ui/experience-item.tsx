@@ -22,22 +22,24 @@ export function ExperienceItem({
 
   return (
     <motion.div
-      initial={shouldReduceMotion ? false : timelineItem.initial}
+      initial={shouldReduceMotion ? timelineItem.animate : timelineItem.initial}
+      animate={shouldReduceMotion ? timelineItem.animate : undefined}
       whileInView={shouldReduceMotion ? undefined : timelineItem.animate}
       viewport={{ once: true, margin: "-60px" }}
       transition={
         shouldReduceMotion
-          ? undefined
+          ? { duration: 0 }
           : { ...timelineItem.transition, delay: index * 0.15 }
       }
       className="group relative grid gap-4 border-t border-white/[0.06] py-8 pl-6 sm:gap-6 sm:py-10 md:grid-cols-[140px_1fr] lg:grid-cols-[180px_1fr] hover:bg-white/[0.005] hover:border-t-white/[0.12] transition-all duration-500"
     >
       {/* Structural Minimal Connecting Timeline node */}
       <motion.div
-        initial={shouldReduceMotion ? false : timelineLine.initial}
+        initial={shouldReduceMotion ? timelineLine.animate : timelineLine.initial}
+        animate={shouldReduceMotion ? timelineLine.animate : undefined}
         whileInView={shouldReduceMotion ? undefined : timelineLine.animate}
         viewport={{ once: true }}
-        transition={shouldReduceMotion ? undefined : timelineLine.transition}
+        transition={shouldReduceMotion ? { duration: 0 } : timelineLine.transition}
         style={{ originY: 0 }}
         className="absolute left-0 top-0 bottom-0 w-px bg-white/[0.06] group-hover:bg-white/[0.12] transition-colors duration-500"
       />

@@ -49,7 +49,7 @@ const fallbackContent: HomePageContent = {
       description:
         "Open for collaborations, freelance projects, and modern digital product development.",
       ctaLabel: "Get in touch",
-      email: "dava@example.com",
+      email: "dapaardana11@gmail.com",
       socialLinks: [
         {
           label: "GitHub",
@@ -57,7 +57,7 @@ const fallbackContent: HomePageContent = {
         },
         {
           label: "LinkedIn",
-          url: "https://linkedin.com",
+          url: "https://linkedin.com/in/m-dava-ardana/",
         },
       ],
     },

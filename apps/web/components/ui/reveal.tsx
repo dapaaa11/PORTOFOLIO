@@ -13,11 +13,12 @@ export function Reveal({ delay = 0, children, ...props }: RevealProps) {
 
   return (
     <motion.div
-      initial={shouldReduce ? false : fadeUp.initial}
+      initial={shouldReduce ? fadeUp.animate : fadeUp.initial}
+      animate={shouldReduce ? fadeUp.animate : undefined}
       whileInView={shouldReduce ? undefined : fadeUp.animate}
       viewport={{ once: true, margin: "-80px" }}
       transition={
-        shouldReduce ? undefined : { ...fadeUp.transition, delay }
+        shouldReduce ? { duration: 0 } : { ...fadeUp.transition, delay }
       }
       {...props}
     >

@@ -280,6 +280,7 @@ export function HomePageClient({ initialContent }: HomePageClientProps) {
               <MagneticButton
                 href={`mailto:${sectionsContent.contact.email}`}
                 variant="primary"
+                className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 {sectionsContent.contact.ctaLabel}
               </MagneticButton>
@@ -291,6 +292,7 @@ export function HomePageClient({ initialContent }: HomePageClientProps) {
                   target="_blank"
                   rel="noreferrer"
                   variant="ghost"
+                  className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                   {link.label}
                 </MagneticButton>
