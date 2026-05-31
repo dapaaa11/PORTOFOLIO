@@ -7,7 +7,7 @@ import { useLanguage } from "@/lib/context/language-context";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [scrolled, setScrolled] = useState(false);
   const overlayRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -28,6 +28,15 @@ export function Navbar() {
       href: "/#contact",
     },
   ];
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 80);
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     if (!isOpen) {
@@ -83,60 +92,53 @@ export function Navbar() {
   };
 
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-white/[0.04] bg-black/70 backdrop-blur-xl">
+    <header
+      className={`fixed left-0 right-0 top-0 z-50 border-b transition-all duration-300 ${
+        scrolled
+          ? "border-white/5 bg-background/80 backdrop-blur-md"
+          : "border-transparent bg-transparent"
+      }`}
+    >
       <div className="container-layout flex h-16 items-center justify-between">
         <Link
           href="/"
-          className="shrink-0 text-sm font-medium tracking-[-0.01em] text-white relative group"
+          className="group relative shrink-0 font-display text-sm font-bold text-text-pri focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/40"
           onClick={closeMenu}
         >
           <span>Dava Ardana</span>
-          <span className="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full" />
+          <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-accent transition-transform duration-300 group-hover:scale-x-100" />
         </Link>
 
-        {/* Primary Desktop Navigation with Premium Sliding Underline */}
         <div className="hidden items-center gap-8 md:flex">
-          <nav 
-            className="relative flex items-center gap-8" 
-            aria-label="Primary"
-            onMouseLeave={() => setHoveredIndex(null)}
-          >
-            {links.map((link, index) => (
+          <nav className="flex items-center gap-8" aria-label="Primary">
+            {links.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
-                onMouseEnter={() => setHoveredIndex(index)}
-                className="relative py-1 text-[13px] text-zinc-400 transition-colors duration-300 hover:text-white focus:outline-none focus-visible:ring-1 focus-visible:ring-white/40 rounded px-1.5"
+                className="group relative rounded px-1.5 py-1 text-sm font-medium text-text-sec transition-colors hover:text-text-pri focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/40"
               >
-                <span className="relative z-10">{link.label}</span>
-                {hoveredIndex === index && (
-                  <motion.span
-                    layoutId="nav-underline"
-                    className="absolute left-0 right-0 bottom-0 h-px bg-white z-0"
-                    transition={{ type: "spring", stiffness: 350, damping: 28 }}
-                  />
-                )}
+                {link.label}
+                <span className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-accent transition-transform duration-300 group-hover:scale-x-100" />
               </Link>
             ))}
           </nav>
 
-          {/* Premium Desktop Language Switcher */}
-          <div className="flex items-center gap-1.5 text-[11px] font-mono border-l border-white/[0.06] pl-6 h-5">
+          <div className="flex h-5 items-center gap-1.5 border-l border-border-sub pl-6 font-mono text-[11px]">
             <button
               onClick={() => setLanguage("en")}
-              className={`transition-colors duration-300 hover:text-white focus:outline-none focus-visible:ring-1 focus-visible:ring-white/40 rounded px-1.5 ${
-                language === "en" ? "text-white font-medium" : "text-zinc-500"
+              className={`rounded px-1.5 transition-colors duration-300 hover:text-text-pri focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 ${
+                language === "en" ? "font-medium text-accent" : "text-text-sec"
               }`}
               aria-label="Switch language to English"
               aria-pressed={language === "en"}
             >
               EN
             </button>
-            <span className="text-zinc-700 select-none">/</span>
+            <span className="select-none text-muted">/</span>
             <button
               onClick={() => setLanguage("id")}
-              className={`transition-colors duration-300 hover:text-white focus:outline-none focus-visible:ring-1 focus-visible:ring-white/40 rounded px-1.5 ${
-                language === "id" ? "text-white font-medium" : "text-zinc-500"
+              className={`rounded px-1.5 transition-colors duration-300 hover:text-text-pri focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 ${
+                language === "id" ? "font-medium text-accent" : "text-text-sec"
               }`}
               aria-label="Switch language to Indonesian"
               aria-pressed={language === "id"}
@@ -153,7 +155,7 @@ export function Navbar() {
           aria-controls="mobile-navigation"
           aria-expanded={isOpen}
           onClick={() => setIsOpen((current) => !current)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 text-white transition-colors duration-200 hover:border-white/20 hover:bg-white/[0.04] focus:outline-none focus:ring-2 focus:ring-white/30 md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border-sub text-text-pri transition-colors duration-200 hover:border-accent/40 hover:bg-accent/10 focus:outline-none focus:ring-2 focus:ring-accent/30 md:hidden"
         >
           <span className="sr-only">{isOpen ? "Close menu" : "Open menu"}</span>
           <span aria-hidden="true" className="relative block h-3.5 w-4">
@@ -188,7 +190,7 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-x-0 top-16 z-40 h-[calc(100svh-4rem)] border-t border-white/[0.04] bg-black/95 backdrop-blur-xl md:hidden"
+            className="fixed inset-x-0 top-16 z-40 h-[calc(100svh-4rem)] border-t border-border-sub bg-background backdrop-blur-xl md:hidden"
           >
             <motion.div
               initial={{ y: -8, opacity: 0 }}
@@ -212,11 +214,10 @@ export function Navbar() {
                     <Link
                       href={link.href}
                       onClick={closeMenu}
-                      className="flex min-h-14 items-center justify-between border-b border-white/10 py-4 text-lg font-medium tracking-tight text-white transition-colors duration-200 hover:text-zinc-300 focus:outline-none focus:ring-2 focus:ring-white/30"
-                      style={{ fontFamily: "var(--font-heading)" }}
+                      className="flex min-h-14 items-center justify-between border-b border-border-sub py-4 font-display text-lg font-bold tracking-tight text-text-pri transition-colors duration-200 hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
                     >
                       {link.label}
-                      <span className="text-xs uppercase tracking-[0.24em] text-zinc-600">
+                      <span className="font-mono text-xs uppercase tracking-[0.24em] text-muted">
                         0{index + 1}
                       </span>
                     </Link>
@@ -224,17 +225,16 @@ export function Navbar() {
                 ))}
               </nav>
 
-              <div className="border-t border-white/10 pt-6 flex flex-col gap-6">
-                {/* Premium Mobile Language Selector */}
+              <div className="flex flex-col gap-6 border-t border-border-sub pt-6">
                 <div className="flex items-center gap-4 text-sm font-mono">
-                  <span className="text-zinc-500 uppercase tracking-wider text-xs select-none">Language:</span>
+                  <span className="select-none text-xs uppercase tracking-wider text-text-sec">Language:</span>
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => setLanguage("en")}
-                      className={`px-3.5 py-1 rounded-full border text-xs tracking-wider transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
+                      className={`rounded-full border px-3.5 py-1 text-xs tracking-wider transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
                         language === "en"
-                          ? "border-white bg-white text-black font-semibold"
-                          : "border-white/10 text-zinc-400 hover:border-white/30 hover:text-white"
+                          ? "border-accent bg-accent font-semibold text-background"
+                          : "border-border-sub text-text-sec hover:border-accent/40 hover:text-text-pri"
                       }`}
                       aria-label="Switch mobile viewport to English"
                       aria-pressed={language === "en"}
@@ -243,10 +243,10 @@ export function Navbar() {
                     </button>
                     <button
                       onClick={() => setLanguage("id")}
-                      className={`px-3.5 py-1 rounded-full border text-xs tracking-wider transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
+                      className={`rounded-full border px-3.5 py-1 text-xs tracking-wider transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
                         language === "id"
-                          ? "border-white bg-white text-black font-semibold"
-                          : "border-white/10 text-zinc-400 hover:border-white/30 hover:text-white"
+                          ? "border-accent bg-accent font-semibold text-background"
+                          : "border-border-sub text-text-sec hover:border-accent/40 hover:text-text-pri"
                       }`}
                       aria-label="Switch mobile viewport to Indonesian"
                       aria-pressed={language === "id"}
@@ -256,7 +256,7 @@ export function Navbar() {
                   </div>
                 </div>
 
-                <p className="max-w-sm text-sm leading-relaxed text-zinc-500">
+                <p className="max-w-sm text-sm leading-relaxed text-text-sec">
                   Full-Stack Engineer & Cloud Architect focused on fast, clean
                   digital systems and thoughtful user experiences.
                 </p>
@@ -267,7 +267,7 @@ export function Navbar() {
                     closeMenu();
                     menuButtonRef.current?.focus();
                   }}
-                  className="mt-2 inline-flex min-h-11 items-center justify-center rounded-full border border-white/10 px-5 text-sm text-zinc-300 transition-colors duration-200 hover:border-white/20 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/30"
+                  className="mt-2 inline-flex min-h-11 items-center justify-center rounded-lg border border-accent/30 px-5 text-sm text-accent transition-colors duration-200 hover:bg-accent/10 focus:outline-none focus:ring-2 focus:ring-accent/30"
                 >
                   {t.nav.close}
                 </button>

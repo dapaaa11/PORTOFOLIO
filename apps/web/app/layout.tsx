@@ -1,4 +1,3 @@
-import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
@@ -6,16 +5,7 @@ import { SmoothScroll } from "@/components/motion/smooth-scroll";
 import { WebVitalsReporter } from "@/components/motion/web-vitals";
 import { LanguageProvider } from "@/lib/context/language-context";
 import { BatikOverlay } from "@/components/layout/batik-overlay";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const manrope = Manrope({
-  variable: "--font-manrope",
-  subsets: ["latin"],
-});
+import { dmSans, jetbrainsMono, syne } from "@/lib/fonts";
 
 import { constructMetadata, SITE_URL } from "@/lib/seo";
 
@@ -55,9 +45,12 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${syne.variable} ${dmSans.variable} ${jetbrainsMono.variable}`}
+    >
       <body
-        className={`${inter.variable} ${manrope.variable} bg-black font-sans text-white antialiased`}
+        className="bg-background font-body text-text-pri antialiased"
       >
         <a 
           href="#main-content" 

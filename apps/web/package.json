@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@icons-pack/react-simple-icons": "^13.13.0",
     "@sanity/client": "^7.22.0",
     "framer-motion": "^12.38.0",
     "gsap": "^3.15.0",
