@@ -154,8 +154,33 @@ code,
   }
 }
 
+@keyframes contact-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .animate-orb-float {
   animation: orb-float 8s ease-in-out infinite;
+}
+
+.animate-contact-gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(74, 255, 224, 0.04) 0%,
+    rgba(108, 99, 255, 0.06) 50%,
+    rgba(74, 255, 224, 0.04) 100%
+  );
+  background-size: 300% 300%;
+  animation: contact-gradient 12s ease infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -169,6 +194,10 @@ code,
   }
 
   .animate-orb-float {
+    animation: none;
+  }
+
+  .animate-contact-gradient {
     animation: none;
   }
 }

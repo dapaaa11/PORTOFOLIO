@@ -262,37 +262,42 @@ export function HomePageClient({ initialContent }: HomePageClientProps) {
       </Section>
 
       {/* CONTACT SECTION */}
-      <Section id="contact">
-        <Reveal>
-          <SectionTitle
-            eyebrow={sectionsContent.contact.eyebrow}
-            title={sectionsContent.contact.title}
-            description={sectionsContent.contact.description}
-          />
-        </Reveal>
+      <Section id="contact" className="relative overflow-hidden">
+        <div aria-hidden="true" className="absolute inset-0 animate-contact-gradient" />
+        <div aria-hidden="true" className="absolute inset-0 bg-background/60 backdrop-blur-[2px]" />
 
-        <Reveal delay={0.1}>
-          <div className="mt-12 flex flex-col items-start gap-5 sm:mt-14 sm:flex-row sm:flex-wrap sm:items-center">
-            <MagneticButton
-              href={`mailto:${sectionsContent.contact.email}`}
-              variant="primary"
-            >
-              {sectionsContent.contact.ctaLabel}
-            </MagneticButton>
+        <div className="relative z-10">
+          <Reveal>
+            <SectionTitle
+              eyebrow={sectionsContent.contact.eyebrow}
+              title={sectionsContent.contact.title}
+              description={sectionsContent.contact.description}
+            />
+          </Reveal>
 
-            {sectionsContent.contact.socialLinks.map((link) => (
+          <Reveal delay={0.1}>
+            <div className="mt-12 flex flex-col items-start gap-5 sm:mt-14 sm:flex-row sm:flex-wrap sm:items-center">
               <MagneticButton
-                key={link.label}
-                href={link.url}
-                target="_blank"
-                rel="noreferrer"
-                variant="ghost"
+                href={`mailto:${sectionsContent.contact.email}`}
+                variant="primary"
               >
-                {link.label}
+                {sectionsContent.contact.ctaLabel}
               </MagneticButton>
-            ))}
-          </div>
-        </Reveal>
+
+              {sectionsContent.contact.socialLinks.map((link) => (
+                <MagneticButton
+                  key={link.label}
+                  href={link.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  variant="ghost"
+                >
+                  {link.label}
+                </MagneticButton>
+              ))}
+            </div>
+          </Reveal>
+        </div>
       </Section>
     </main>
   );
