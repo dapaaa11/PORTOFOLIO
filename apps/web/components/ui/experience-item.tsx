@@ -1,10 +1,14 @@
 "use client";
 
+import { timelineItem, timelineLine } from "@/lib/motion";
+import { motion, useReducedMotion } from "framer-motion";
+
 interface ExperienceItemProps {
   year: string;
   role: string;
   company: string;
   description: string;
+  index?: number;
 }
 
 export function ExperienceItem({
@@ -12,11 +16,31 @@ export function ExperienceItem({
   role,
   company,
   description,
+  index = 0,
 }: ExperienceItemProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
-    <div className="group relative grid gap-4 border-t border-white/[0.06] py-8 pl-6 sm:gap-6 sm:py-10 md:grid-cols-[140px_1fr] lg:grid-cols-[180px_1fr] hover:bg-white/[0.005] hover:border-t-white/[0.12] transition-all duration-500">
+    <motion.div
+      initial={shouldReduceMotion ? false : timelineItem.initial}
+      whileInView={shouldReduceMotion ? undefined : timelineItem.animate}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={
+        shouldReduceMotion
+          ? undefined
+          : { ...timelineItem.transition, delay: index * 0.15 }
+      }
+      className="group relative grid gap-4 border-t border-white/[0.06] py-8 pl-6 sm:gap-6 sm:py-10 md:grid-cols-[140px_1fr] lg:grid-cols-[180px_1fr] hover:bg-white/[0.005] hover:border-t-white/[0.12] transition-all duration-500"
+    >
       {/* Structural Minimal Connecting Timeline node */}
-      <div className="absolute left-0 top-0 bottom-0 w-px bg-white/[0.06] group-hover:bg-white/[0.12] transition-colors duration-500" />
+      <motion.div
+        initial={shouldReduceMotion ? false : timelineLine.initial}
+        whileInView={shouldReduceMotion ? undefined : timelineLine.animate}
+        viewport={{ once: true }}
+        transition={shouldReduceMotion ? undefined : timelineLine.transition}
+        style={{ originY: 0 }}
+        className="absolute left-0 top-0 bottom-0 w-px bg-white/[0.06] group-hover:bg-white/[0.12] transition-colors duration-500"
+      />
       
       {/* Bullet node indicating active experience segment */}
       <div className="absolute left-[-3.5px] top-[35px] sm:top-[43px] h-[7px] w-[7px] rounded-full bg-zinc-700 border border-black group-hover:bg-white group-hover:scale-125 transition-all duration-500" />
@@ -41,6 +65,6 @@ export function ExperienceItem({
           {description}
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 }

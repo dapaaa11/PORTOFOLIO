@@ -1,7 +1,6 @@
 "use client";
 
 import { Container } from "@/components/layout/container";
-import { FadeIn } from "@/components/motion/fade-in";
 import { Section } from "@/components/layout/section";
 import { SectionTitle } from "@/components/ui/section-title";
 import { ProjectCard } from "@/components/ui/project-card";
@@ -9,6 +8,11 @@ import { ExperienceItem } from "@/components/ui/experience-item";
 import { SkillGroup } from "@/components/ui/skill-group";
 import { HomePageContent } from "@/lib/sanity/types";
 import { useLanguage } from "@/lib/context/language-context";
+import { OptimizedImage } from "@/components/ui/optimized-image";
+import { MagneticButton } from "@/components/ui/magnetic-button";
+import { Reveal } from "@/components/ui/reveal";
+import { staggerContainer, staggerItem } from "@/lib/motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 interface HomePageClientProps {
   initialContent: HomePageContent;
@@ -16,6 +20,7 @@ interface HomePageClientProps {
 
 export function HomePageClient({ initialContent }: HomePageClientProps) {
   const { language, t, translateCmsProject } = useLanguage();
+  const shouldReduce = useReducedMotion();
 
   // 1. Resolve Hero
   const heroContent = {
@@ -88,36 +93,53 @@ export function HomePageClient({ initialContent }: HomePageClientProps) {
   const resolvedSkills = t.skillsList;
 
   return (
-    <main id="main-content" className="min-h-screen bg-black pt-16 text-white overflow-hidden">
+    <main id="main-content" className="min-h-screen overflow-hidden bg-transparent pt-16 text-text-pri">
       {/* HERO SECTION */}
-      <Container className="relative flex min-h-[calc(100svh-6rem)] items-center py-20 sm:min-h-[calc(100svh-4rem)] sm:py-28 lg:py-36">
+      <Container className="relative flex min-h-[calc(100svh-6rem)] items-center overflow-hidden py-20 sm:min-h-[calc(100svh-4rem)] sm:py-28 lg:py-36">
+        <div
+          aria-hidden="true"
+          className="absolute left-1/2 top-1/4 z-0 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-accent/5 blur-[120px] animate-orb-float pointer-events-none"
+        />
+
         {/* Left Typography Block - Primary visual focus */}
-        <div className="relative z-10 max-w-2xl lg:max-w-3xl">
-          <FadeIn>
+        <div className="relative z-10 max-w-2xl md:max-w-[55%] lg:max-w-3xl">
+          <Reveal>
             <p className="mb-5 max-w-xs text-[11px] uppercase leading-relaxed tracking-[0.25em] text-zinc-500 sm:mb-7 sm:max-w-none sm:text-xs sm:tracking-[0.3em]">
               {heroContent.eyebrow}
             </p>
-          </FadeIn>
+          </Reveal>
 
-          <FadeIn delay={0.1}>
-            <h1
+          <Reveal delay={0.1}>
+            <motion.h1
+              variants={shouldReduce ? undefined : staggerContainer}
+              initial={shouldReduce ? false : "initial"}
+              animate={shouldReduce ? undefined : "animate"}
               className="text-[clamp(2.00rem,9vw,2.75rem)] sm:text-[clamp(2.75rem,13vw,4.5rem)] lg:text-7xl font-medium leading-[1.05] sm:leading-[1.0] tracking-[-0.025em]"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               {headlineLines.map((line, idx) => (
                 <span key={`${line}-${idx}`} className="inline sm:block">
-                  {line}
+                  {line.split(" ").map((word, wordIdx) => (
+                    <motion.span
+                      key={`${line}-${word}-${wordIdx}`}
+                      variants={shouldReduce ? undefined : staggerItem}
+                      className="inline-block"
+                    >
+                      {word}
+                      {wordIdx < line.split(" ").length - 1 ? "\u00A0" : ""}
+                    </motion.span>
+                  ))}
                   <span className="sm:hidden"> </span>
                 </span>
               ))}
-            </h1>
-          </FadeIn>
+            </motion.h1>
+          </Reveal>
 
-          <FadeIn delay={0.2}>
+          <Reveal delay={0.2}>
             <p className="mt-6 max-w-xl text-[15px] leading-[1.7] text-zinc-400 sm:mt-10 sm:text-base lg:text-lg lg:leading-[1.75]">
               {heroContent.subheadline}
             </p>
-          </FadeIn>
+          </Reveal>
         </div>
 
         {/* 
@@ -135,7 +157,12 @@ export function HomePageClient({ initialContent }: HomePageClientProps) {
             WebkitMaskImage: "radial-gradient(circle at 55% 45%, black 15%, rgba(0, 0, 0, 0.85) 30%, rgba(0, 0, 0, 0.45) 55%, rgba(0, 0, 0, 0.15) 75%, transparent 95%)",
           }}
         >
-          <div className="relative w-full h-full overflow-hidden">
+          <div 
+            className="relative w-full h-full overflow-hidden"
+            style={{
+              filter: "blur(0.5px) brightness(0.68) contrast(0.95)",
+            }}
+          >
             {/* Ambient Cinematic Fog & Haze Overlays - Seamless portrait-to-background transitions */}
             {/* Left Edge Fog: Smooth horizontal fade transition */}
             <div className="absolute -left-12 top-1/4 h-[55%] w-28 rounded-full bg-radial from-white/[0.035] via-transparent to-transparent blur-3xl z-20" />
@@ -149,14 +176,12 @@ export function HomePageClient({ initialContent }: HomePageClientProps) {
             {/* Vertical ambient transition overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" />
 
-            <img 
+            <OptimizedImage 
               src="/portrait.jpg" 
               alt="Dava Ardana - Cinematic Portrait"
               className="w-full h-full object-cover object-center saturation-[0.90]"
-              style={{
-                filter: "blur(0.5px) brightness(0.68) contrast(0.95)",
-              }}
-              loading="eager"
+              fill
+              priority
             />
           </div>
         </div>
@@ -164,93 +189,110 @@ export function HomePageClient({ initialContent }: HomePageClientProps) {
 
       {/* PROJECTS SECTION */}
       <Section id="projects">
-        <SectionTitle
-          eyebrow={sectionsContent.projects.eyebrow}
-          title={sectionsContent.projects.title}
-          description={sectionsContent.projects.description}
-        />
-        <div className="mt-14 grid gap-5 sm:mt-16 sm:gap-6 lg:grid-cols-2">
-          {resolvedProjects.map((project) => (
-            <ProjectCard
-              key={project.title}
-              title={project.title}
-              description={project.description}
-              stack={project.stack}
-              slug={project.slug}
-              status={project.status}
-            />
-          ))}
-        </div>
+        <Reveal>
+          <SectionTitle
+            eyebrow={sectionsContent.projects.eyebrow}
+            title={sectionsContent.projects.title}
+            description={sectionsContent.projects.description}
+          />
+        </Reveal>
+        <Reveal delay={0.1}>
+          <div className="mt-14 grid gap-5 sm:mt-16 sm:gap-6 lg:grid-cols-2">
+            {resolvedProjects.map((project) => (
+              <ProjectCard
+                key={project.title}
+                title={project.title}
+                description={project.description}
+                stack={project.stack}
+                slug={project.slug}
+                status={project.status}
+              />
+            ))}
+          </div>
+        </Reveal>
       </Section>
 
       {/* EXPERIENCE SECTION */}
       <Section id="experience">
-        <SectionTitle
-          eyebrow={sectionsContent.experience.eyebrow}
-          title={sectionsContent.experience.title}
-          description={sectionsContent.experience.description}
-        />
+        <Reveal>
+          <SectionTitle
+            eyebrow={sectionsContent.experience.eyebrow}
+            title={sectionsContent.experience.title}
+            description={sectionsContent.experience.description}
+          />
+        </Reveal>
 
-        <div className="mt-14 sm:mt-16">
-          {resolvedExperience.map((item, idx) => (
-            <ExperienceItem
-              key={`${item.company}-${item.role}-${idx}`}
-              year={item.year}
-              role={item.role}
-              company={item.company}
-              description={item.description}
-            />
-          ))}
-        </div>
+        <Reveal delay={0.1}>
+          <div className="mt-14 sm:mt-16">
+            {resolvedExperience.map((item, idx) => (
+              <ExperienceItem
+                key={`${item.company}-${item.role}-${idx}`}
+                year={item.year}
+                role={item.role}
+                company={item.company}
+                description={item.description}
+                index={idx}
+              />
+            ))}
+          </div>
+        </Reveal>
       </Section>
 
       {/* SKILLS SECTION */}
       <Section id="skills">
-        <SectionTitle
-          eyebrow={sectionsContent.skills.eyebrow}
-          title={sectionsContent.skills.title}
-          description={sectionsContent.skills.description}
-        />
+        <Reveal>
+          <SectionTitle
+            eyebrow={sectionsContent.skills.eyebrow}
+            title={sectionsContent.skills.title}
+            description={sectionsContent.skills.description}
+          />
+        </Reveal>
 
-        <div className="mt-14 grid gap-5 sm:mt-16 sm:gap-6 md:grid-cols-2">
-          {resolvedSkills.map((skill) => (
-            <SkillGroup
-              key={skill.category}
-              title={skill.category}
-              items={skill.items}
-            />
-          ))}
-        </div>
+        <Reveal delay={0.1}>
+          <div className="mt-14 grid gap-5 sm:mt-16 sm:gap-6 md:grid-cols-2">
+            {resolvedSkills.map((skill) => (
+              <SkillGroup
+                key={skill.category}
+                title={skill.category}
+                items={skill.items}
+              />
+            ))}
+          </div>
+        </Reveal>
       </Section>
 
       {/* CONTACT SECTION */}
       <Section id="contact">
-        <SectionTitle
-          eyebrow={sectionsContent.contact.eyebrow}
-          title={sectionsContent.contact.title}
-          description={sectionsContent.contact.description}
-        />
+        <Reveal>
+          <SectionTitle
+            eyebrow={sectionsContent.contact.eyebrow}
+            title={sectionsContent.contact.title}
+            description={sectionsContent.contact.description}
+          />
+        </Reveal>
 
-        <div className="mt-12 flex flex-col items-start gap-5 sm:mt-14 sm:flex-row sm:flex-wrap sm:items-center">
-          <a
-            href={`mailto:${sectionsContent.contact.email}`}
-            className="inline-flex min-h-12 items-center rounded-full border border-white/10 px-7 py-3.5 text-sm font-medium tracking-wide text-white transition-all duration-400 hover:border-white/25 hover:bg-white hover:text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-          >
-            {sectionsContent.contact.ctaLabel}
-          </a>
-
-          {sectionsContent.contact.socialLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.url}
-              target="_blank"
-              rel="noreferrer"
-              className="py-2 text-sm text-zinc-400 transition-colors duration-300 hover:text-white sm:py-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded px-2"
+        <Reveal delay={0.1}>
+          <div className="mt-12 flex flex-col items-start gap-5 sm:mt-14 sm:flex-row sm:flex-wrap sm:items-center">
+            <MagneticButton
+              href={`mailto:${sectionsContent.contact.email}`}
+              variant="primary"
             >
-              {link.label}
-            </a>
-          ))}
-        </div>
+              {sectionsContent.contact.ctaLabel}
+            </MagneticButton>
+
+            {sectionsContent.contact.socialLinks.map((link) => (
+              <MagneticButton
+                key={link.label}
+                href={link.url}
+                target="_blank"
+                rel="noreferrer"
+                variant="ghost"
+              >
+                {link.label}
+              </MagneticButton>
+            ))}
+          </div>
+        </Reveal>
       </Section>
     </main>
   );
