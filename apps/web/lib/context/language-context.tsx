@@ -37,7 +37,7 @@ export const translationsEn = {
       title: "Let's build something meaningful.",
       description: "Open for collaborations, freelance projects, and modern digital product development.",
       ctaLabel: "Get in touch",
-      email: "dava@example.com",
+      email: "dapaardana11@gmail.com",
     }
   },
   projectsFallback: [
@@ -131,7 +131,7 @@ export const translationsId = {
       title: "Mari bangun sesuatu yang berarti.",
       description: "Terbuka untuk kolaborasi, proyek lepas (freelance), dan pengembangan produk digital modern.",
       ctaLabel: "Hubungi saya",
-      email: "dava@example.com",
+      email: "dapaardana11@gmail.com",
     }
   },
   projectsFallback: [
@@ -192,7 +192,14 @@ export const translationsId = {
   }
 };
 
-export const cmsTranslations = {
+export type CmsProjectTranslation = {
+  description?: string;
+  status?: string;
+};
+
+export type CmsTranslations = Record<string, CmsProjectTranslation>;
+
+export const cmsTranslations: Record<Language, CmsTranslations> = {
   en: {
     "silaku-fsip": {
       description: "engineering narrative",
@@ -223,18 +230,24 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Read preference from localStorage
     const savedLang = localStorage.getItem("portfolio_lang") as Language;
+    let initialLang: Language = "en";
     if (savedLang === "en" || savedLang === "id") {
-      setLanguageState(savedLang);
+      initialLang = savedLang;
     } else {
-      // Detect browser language
       const browserLang = navigator.language.slice(0, 2);
       if (browserLang === "id") {
-        setLanguageState("id");
+        initialLang = "id";
       }
     }
-    setMounted(true);
+    
+    // Defer the updates out of standard render loops to prevent hydration setState failures
+    const timer = setTimeout(() => {
+      setLanguageState(initialLang);
+      setMounted(true);
+    }, 0);
+    
+    return () => clearTimeout(timer);
   }, []);
 
   const setLanguage = (lang: Language) => {
@@ -247,9 +260,10 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const t = language === "en" ? translationsEn : translationsId;
 
   const translateCmsProject = (slug: string, field: "description" | "status", fallbackValue: string): string => {
-    const translationSet = cmsTranslations[language] as any;
-    if (translationSet && translationSet[slug] && translationSet[slug][field]) {
-      return translationSet[slug][field];
+    const translationSet = cmsTranslations[language];
+    const projectTranslation = translationSet[slug];
+    if (projectTranslation && projectTranslation[field]) {
+      return projectTranslation[field] as string;
     }
     return fallbackValue;
   };

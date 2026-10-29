@@ -200,7 +200,7 @@ export function HomePageClient({ initialContent }: HomePageClientProps) {
           <div className="mt-14 grid gap-5 sm:mt-16 sm:gap-6 lg:grid-cols-2">
             {resolvedProjects.map((project) => (
               <ProjectCard
-                key={project.title}
+                key={project.slug}
                 title={project.title}
                 description={project.description}
                 stack={project.stack}
